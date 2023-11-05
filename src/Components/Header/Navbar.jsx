@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import dropdownArrow from '../../assets/icon/arrow-down.png';
 import menu from '../../assets/icon/menu.png';
@@ -19,8 +19,15 @@ const navItems = [
   },
 ];
 const Navbar = () => {
+  const user = false;
   const [navShow, setNavShow] = useState(false);
   const [dropDownShow, setDropDownShow] = useState(false);
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      setNavShow(false);
+      setDropDownShow(false);
+    });
+  }, []);
   return (
     <>
       <div className={classes.commonNavBar}>
@@ -42,38 +49,44 @@ const Navbar = () => {
             )}
           </NavLink>
         ))}
-        <div className={classes.dropdownWrap}>
-          <div
-            className={`${classes.navItem} ${classes.dropdownItem}`}
-            onClick={() => setDropDownShow(!dropDownShow)}
-          >
-            <span>Dashboard</span>
-            <img
-              src={dropdownArrow}
-              className={`${classes.arrow} ${
-                dropDownShow && classes.arrowRotate
-              }`}
-            />
-          </div>
-          <div
-            className={`${classes.dropdown} ${
-              navShow && dropDownShow && classes.dropdownShow
-            }`}
-          >
-            <Link className={classes.navItem}>
-              <span>My-Services</span>
-            </Link>
-            <Link className={classes.navItem}>
-              <span>Add-Services</span>
-            </Link>
-            <Link className={classes.navItem}>
-              <span>My-Schedules</span>
-            </Link>
-          </div>
-        </div>
-        <Link className={classes.navItem}>
-          <span>Logout</span>
-        </Link>
+        <>
+          {user && (
+            <>
+              <div className={classes.dropdownWrap}>
+                <div
+                  className={`${classes.navItem} ${classes.dropdownItem}`}
+                  onClick={() => setDropDownShow(!dropDownShow)}
+                >
+                  <span>Dashboard</span>
+                  <img
+                    src={dropdownArrow}
+                    className={`${classes.arrow} ${
+                      dropDownShow && classes.arrowRotate
+                    }`}
+                  />
+                </div>
+                <div
+                  className={`${classes.dropdown} ${
+                    navShow && dropDownShow && classes.dropdownShow
+                  }`}
+                >
+                  <Link className={classes.navItem}>
+                    <span>My-Services</span>
+                  </Link>
+                  <Link className={classes.navItem}>
+                    <span>Add-Services</span>
+                  </Link>
+                  <Link className={classes.navItem}>
+                    <span>My-Schedules</span>
+                  </Link>
+                </div>
+              </div>
+              <Link className={classes.navItem}>
+                <span>Logout</span>
+              </Link>
+            </>
+          )}
+        </>
         <User />
       </div>
     </>

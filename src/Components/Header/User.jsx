@@ -2,7 +2,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import classes from './User.module.css';
 
 const User = () => {
-  const user = true;
+  const user = false;
   const { pathname } = useLocation();
   return (
     <>

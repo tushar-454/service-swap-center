@@ -10,7 +10,7 @@
 
 body {
   background-color: #f8fafc;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Chrome, Safari, Edge, Opera */

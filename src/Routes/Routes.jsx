@@ -3,6 +3,7 @@ import Home from '../Components/Home/Home';
 import Login from '../Components/Login/Login';
 import Services from '../Components/Services/Services';
 import Signup from '../Components/Signup/Signup';
+import PrivateRoutes from '../Utils/PrivateRoutes/PrivateRoutes';
 import PublicRoutes from '../Utils/PublicRoutes/PublicRoutes';
 import ErrorRoutes from './ErrorRoutes';
 import Layout from './Layout';
@@ -35,7 +36,11 @@ const routes = createBrowserRouter([
       },
       {
         path: '/services',
-        element: <Services />,
+        element: (
+          <PrivateRoutes>
+            <Services />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

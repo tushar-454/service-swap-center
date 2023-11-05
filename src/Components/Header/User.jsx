@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import classes from './User.module.css';
 
 const User = () => {
-  const user = false;
+  const { user } = useContext(AuthContext);
   const { pathname } = useLocation();
   return (
     <>

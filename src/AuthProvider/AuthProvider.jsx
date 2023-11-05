@@ -2,10 +2,12 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
+  signOut,
 } from 'firebase/auth';
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 import { Auth } from '../Firebase/firebase-config';
+import Toast from '../Utils/Toast/Toast';
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -16,6 +18,14 @@ const AuthProvider = ({ children }) => {
   const loginWithGoogle = () => {
     setLoading(false);
     return signInWithPopup(Auth, new GoogleAuthProvider());
+  };
+
+  //logout account
+  const logOutAccount = () => {
+    setLoading(false);
+    signOut(Auth)
+      .then(() => Toast('Logout successfull', 'success'))
+      .catch((error) => Toast(error.message, 'error'));
   };
 
   useEffect(() => {
@@ -38,6 +48,7 @@ const AuthProvider = ({ children }) => {
     profilePhoto,
     setProfilePhoto,
     loginWithGoogle,
+    logOutAccount,
   };
   return (
     <AuthContext.Provider value={userInfo}>{children}</AuthContext.Provider>

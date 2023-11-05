@@ -57,6 +57,7 @@
   right: -1rem;
   transition: 0.2s;
   transform-origin: top;
+  backdrop-filter: blur(2rem);
   transform: scaleY(0);
 }
 .arrow {

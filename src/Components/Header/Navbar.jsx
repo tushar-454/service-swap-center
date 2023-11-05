@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import dropdownArrow from '../../assets/icon/arrow-down.png';
 import menu from '../../assets/icon/menu.png';
 import cross from '../../assets/icon/remove.png';
@@ -19,7 +20,7 @@ const navItems = [
   },
 ];
 const Navbar = () => {
-  const user = false;
+  const { user, logOutAccount } = useContext(AuthContext);
   const [navShow, setNavShow] = useState(false);
   const [dropDownShow, setDropDownShow] = useState(false);
   useEffect(() => {
@@ -67,7 +68,7 @@ const Navbar = () => {
                 </div>
                 <div
                   className={`${classes.dropdown} ${
-                    navShow && dropDownShow && classes.dropdownShow
+                    dropDownShow && classes.dropdownShow
                   }`}
                 >
                   <Link className={classes.navItem}>
@@ -81,7 +82,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               </div>
-              <Link className={classes.navItem}>
+              <Link className={classes.navItem} onClick={logOutAccount}>
                 <span>Logout</span>
               </Link>
             </>

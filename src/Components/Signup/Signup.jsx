@@ -1,4 +1,7 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Toast from '../../Utils/Toast/Toast';
 import password from '../../assets/icon/cyber-security.png';
 import google from '../../assets/icon/google.png';
 import email from '../../assets/icon/internet.png';
@@ -23,7 +26,20 @@ const dynamicError = {
   length: false,
 };
 const Signup = () => {
+  const { loginWithGoogle } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [isShow, setIsShow] = useState(false);
+
+  // handle login with google
+  const handleLoginWithGoogle = () => {
+    loginWithGoogle()
+      .then(() => {
+        navigate('/');
+        Toast('Login Successfull.', 'success');
+      })
+      .catch((error) => Toast(error.message, 'error'));
+  };
+
   return (
     <section>
       <Container>
@@ -113,7 +129,11 @@ const Signup = () => {
           />
           <Button displayName={'Signup'} type={'submit'} />
           <Divider text={'Or'} />
-          <ButtonIco displayName={'Login with google'} icon={google} />
+          <ButtonIco
+            displayName={'Login with google'}
+            icon={google}
+            onClick={handleLoginWithGoogle}
+          />
           <Info
             text={'You have already an account.'}
             linkText={'Login'}

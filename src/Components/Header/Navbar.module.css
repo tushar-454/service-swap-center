@@ -1,0 +1,21 @@
+.navItemsWrap {
+  display: flex;
+  gap: 0.5rem;
+}
+.navItem span {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0.3rem;
+  color: #000;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.4rem;
+  transition: 0.2s;
+}
+.navItem span:hover {
+  background-color: #2626ff;
+  color: #fff;
+}
+.active {
+  background-color: #2626ff;
+  color: #fff !important;
+}

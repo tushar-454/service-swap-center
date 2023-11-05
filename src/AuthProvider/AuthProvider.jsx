@@ -1,5 +1,6 @@
 import {
   GoogleAuthProvider,
+  createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithPopup,
   signOut,
@@ -13,6 +14,12 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [profilePhoto, setProfilePhoto] = useState('');
+
+  // signup or crate account with email and password
+  const signupWithEmailPassword = (email, password) => {
+    setLoading(false);
+    return createUserWithEmailAndPassword(Auth, email, password);
+  };
 
   // login with google
   const loginWithGoogle = () => {
@@ -48,6 +55,7 @@ const AuthProvider = ({ children }) => {
     profilePhoto,
     setProfilePhoto,
     loginWithGoogle,
+    signupWithEmailPassword,
     logOutAccount,
   };
   return (

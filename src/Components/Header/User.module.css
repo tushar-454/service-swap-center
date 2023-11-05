@@ -11,3 +11,8 @@
   background-color: #2626ff;
   color: #fff;
 }
+
+.active {
+  background-color: #2626ff;
+  color: #fff !important;
+}

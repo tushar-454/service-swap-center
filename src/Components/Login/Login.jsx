@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Toast from '../../Utils/Toast/Toast';
@@ -15,10 +15,48 @@ import Button from '../UI/Button';
 import Checkbox from '../UI/Checkbox';
 import Input from '../UI/Input';
 import classes from './Login.module.css';
+const loginInit = {
+  email: '',
+  password: '',
+};
+const errorInit = {
+  email: '',
+  password: '',
+};
 const Login = () => {
-  const { loginWithGoogle } = useContext(AuthContext);
+  const { loginWithGoogle, loginWithEmailPass } = useContext(AuthContext);
+  const [login, setLogin] = useState({ ...loginInit });
+  const [error, setError] = useState({ ...errorInit });
   const navigate = useNavigate();
   const { state } = useLocation();
+
+  //handle input change in react way
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLogin((prevObj) => ({ ...prevObj, [name]: value }));
+    setError((prevObj) => ({ ...prevObj, [name]: '' }));
+  };
+
+  //handle login with email and password
+  const handleLoginEmailPass = (e) => {
+    e.preventDefault();
+    const { email, password } = login;
+    if (!email) {
+      setError((prevObj) => ({ ...prevObj, email: 'Email required !' }));
+      return;
+    }
+    if (!password) {
+      setError((prevObj) => ({ ...prevObj, password: 'Password required !' }));
+      return;
+    }
+    loginWithEmailPass(email, password)
+      .then(() => {
+        navigate(state || '/');
+        Toast('Login Successfull.', 'success');
+      })
+      .catch((error) => Toast(error.message, 'error'));
+  };
+
   // handle login with google
   const handleLoginWithGoogle = () => {
     loginWithGoogle()
@@ -31,7 +69,11 @@ const Login = () => {
   return (
     <section>
       <Container>
-        <LogSignLay illustration={loginIllustration} title={'Login'}>
+        <LogSignLay
+          illustration={loginIllustration}
+          title={'Login'}
+          handleSubmit={handleLoginEmailPass}
+        >
           <Input
             displayName={'Email'}
             id={'email'}
@@ -39,6 +81,9 @@ const Login = () => {
             type={'email'}
             name={'email'}
             placeholder={'example@yeahoo.com'}
+            value={login.email}
+            onChange={handleInputChange}
+            error={error.email}
           />
           <Input
             isPassInput={true}
@@ -48,6 +93,9 @@ const Login = () => {
             type={'password'}
             name={'password'}
             placeholder={'dlfh459#$*J'}
+            value={login.password}
+            onChange={handleInputChange}
+            error={error.password}
           />
           <div className={classes.remforWrap}>
             <div>

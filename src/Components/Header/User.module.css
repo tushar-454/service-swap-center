@@ -16,3 +16,13 @@
   background-color: #2626ff;
   color: #fff !important;
 }
+
+.commonNavBar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .commonNavBar {
+    display: initial;
+  }
+}

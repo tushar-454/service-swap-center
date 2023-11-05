@@ -2,10 +2,10 @@ import { NavLink, useLocation } from 'react-router-dom';
 import classes from './User.module.css';
 
 const User = () => {
-  const user = false;
+  const user = true;
   const { pathname } = useLocation();
   return (
-    <div>
+    <>
       {user ? (
         <></>
       ) : (
@@ -31,7 +31,7 @@ const User = () => {
           )}
         </>
       )}
-    </div>
+    </>
   );
 };
 

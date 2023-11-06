@@ -13,9 +13,7 @@ const LogSignLay = ({
       className={classes.logSignWrap}
       style={{ flexDirection: isRowDirectionReverse && 'row-reverse' }}
     >
-      <div className={classes.logSignImg}>
-        <img src={illustration} width={'100%'} />
-      </div>
+      <div className={classes.logSignImg}>{illustration}</div>
       <div className={classes.logSignForm}>
         <div className={classes.formTitle}>
           <h1>{title}</h1>

@@ -6,7 +6,9 @@ import Toast from '../../Utils/Toast/Toast';
 import password from '../../assets/icon/cyber-security.png';
 import google from '../../assets/icon/google.png';
 import email from '../../assets/icon/internet.png';
-import loginIllustration from '../../assets/login-illustration.png';
+// import loginIllustration from '../../assets/login-illustration.png';
+import Lottie from 'lottie-react';
+import loginLottie from '../../assets/signup_lottie.json';
 import ButtonIco from '../Reusable/ButtonIco';
 import Container from '../Reusable/Container';
 import Divider from '../Reusable/Divider';
@@ -74,7 +76,11 @@ const Login = () => {
       </Helmet>
       <Container>
         <LogSignLay
-          illustration={loginIllustration}
+          illustration={
+            <div>
+              <Lottie animationData={loginLottie} />
+            </div>
+          }
           title={'Login'}
           handleSubmit={handleLoginEmailPass}
         >

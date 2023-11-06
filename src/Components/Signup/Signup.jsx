@@ -12,7 +12,9 @@ import email from '../../assets/icon/internet.png';
 import right from '../../assets/icon/right.png';
 import name from '../../assets/icon/user.png';
 import wrong from '../../assets/icon/wrong.png';
-import signupIllustration from '../../assets/sign_up.png';
+// import signupIllustration from '../../assets/sign_up.png';
+import Lottie from 'lottie-react';
+import singupLottie from '../../assets/login_lottie.json';
 import ButtonIco from '../Reusable/ButtonIco';
 import Container from '../Reusable/Container';
 import Divider from '../Reusable/Divider';
@@ -198,7 +200,7 @@ const Signup = () => {
       </Helmet>
       <Container>
         <LogSignLay
-          illustration={signupIllustration}
+          illustration={<Lottie animationData={singupLottie} />}
           title={'Signup'}
           isRowDirectionReverse={true}
           handleSubmit={handleSignUpSubmit}

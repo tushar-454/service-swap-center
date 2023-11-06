@@ -33,7 +33,12 @@
   align-items: center;
   gap: 0.5rem;
 }
-.viewMore button {
+.viewAll {
+  text-align: center;
+  margin: 2rem 0;
+}
+.viewMore button,
+.viewAll button {
   border: none;
   outline: none;
   font-weight: 500;
@@ -42,6 +47,9 @@
   padding: 0.5rem;
   color: white;
   border-radius: 0.5rem;
+}
+.viewAll button {
+  padding: 0.5rem 2rem;
 }
 .popularServicesItemContent {
   margin: 0.5rem 0;

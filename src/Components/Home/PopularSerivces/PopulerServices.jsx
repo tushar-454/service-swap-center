@@ -36,6 +36,9 @@ const PopulerServices = () => {
             </div>
           ))}
         </div>
+        <div className={classes.viewAll}>
+          <button>View All</button>
+        </div>
       </Container>
     </section>
   );

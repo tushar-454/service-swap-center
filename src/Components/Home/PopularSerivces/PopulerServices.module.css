@@ -1,0 +1,59 @@
+.sectionTitle {
+  margin: 1rem 0;
+}
+.sectionTitle h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+.popularServicesWrap {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.popularServicesItem {
+  background-color: #efefef;
+  border-radius: 0.2rem;
+  padding: 1.5rem;
+}
+.popularServicesItem img {
+  width: 100%;
+}
+.servicesAuthorWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.servicesAuthorWrap img {
+  width: 2rem;
+}
+.servicesAuthor {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.viewMore button {
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 1rem;
+  background: tomato;
+  padding: 0.5rem;
+  color: white;
+  border-radius: 0.5rem;
+}
+.popularServicesItemContent {
+  margin: 0.5rem 0;
+}
+@media (max-width: 768px) {
+  .popularServicesWrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 320px) {
+  .viewMore button {
+    font-size: 0.8rem;
+  }
+}

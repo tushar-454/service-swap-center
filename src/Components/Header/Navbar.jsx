@@ -100,6 +100,12 @@ const Navbar = () => {
                   >
                     <span>My-Schedules</span>
                   </Link>
+                  <Link
+                    to={'/manage-services'}
+                    className={`itemOfNav ${classes.navItem}`}
+                  >
+                    <span>Manage Services</span>
+                  </Link>
                 </div>
               </div>
             </>

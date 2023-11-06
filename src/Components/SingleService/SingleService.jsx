@@ -53,7 +53,7 @@ const SingleService = () => {
       .post('/booking', bookedData)
       .then((res) => {
         if (res.data.acknowledged) {
-          swal('Service Booked', '', 'suceess');
+          swal('Service Booked', '', 'success');
         }
       })
       .catch((error) => swal('There was an error !', error.message, 'error'));

@@ -20,7 +20,7 @@ const navItems = [
   },
 ];
 const Navbar = () => {
-  const { user, logOutAccount } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [navShow, setNavShow] = useState(false);
   const [dropDownShow, setDropDownShow] = useState(false);
   useEffect(() => {
@@ -102,12 +102,6 @@ const Navbar = () => {
                   </Link>
                 </div>
               </div>
-              <Link
-                className={`itemOfNav ${classes.navItem}`}
-                onClick={logOutAccount}
-              >
-                <span>Logout</span>
-              </Link>
             </>
           )}
         </>

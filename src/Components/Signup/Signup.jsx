@@ -11,7 +11,7 @@ import email from '../../assets/icon/internet.png';
 import right from '../../assets/icon/right.png';
 import name from '../../assets/icon/user.png';
 import wrong from '../../assets/icon/wrong.png';
-import signupIllustration from '../../assets/sign_up.svg';
+import signupIllustration from '../../assets/sign_up.png';
 import ButtonIco from '../Reusable/ButtonIco';
 import Container from '../Reusable/Container';
 import Divider from '../Reusable/Divider';

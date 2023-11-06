@@ -9,10 +9,10 @@ const Footer = () => {
     <footer className={classes.footer}>
       <Container>
         <div className={classes.footerWrap}>
-          <div className={classes.footerBrand}>
-            <Logo />
-          </div>
           <div className={classes.footerContent}>
+            <div>
+              <Logo />
+            </div>
             <div>
               <h3>Product</h3>
               <ul>
@@ -42,31 +42,29 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3>Developers</h3>
-              <ul>
-                <li>
-                  <a href='#'>Public API</a>
-                </li>
-                <li>
-                  <a href='#'>Documentation</a>
-                </li>
-                <li>
-                  <a href='#'>Guides</a>
-                </li>
-              </ul>
-            </div>
-            <div>
               <h3>Social Media</h3>
-              <div className={classes.socialWrap}>
-                <a href='#' title='Facebook'>
-                  <img src={facebook} />
-                </a>
-                <a href='#' title='Twitter'>
-                  <img src={twitter} />
-                </a>
-                <a href='#' title='Instagram'>
-                  <img src={instagram} />
-                </a>
+              <div>
+                <div className={classes.socialWrap}>
+                  <a href='#' title='Facebook'>
+                    <img src={facebook} />
+                  </a>
+                  <a href='#' title='Twitter'>
+                    <img src={twitter} />
+                  </a>
+                  <a href='#' title='Instagram'>
+                    <img src={instagram} />
+                  </a>
+                </div>
+                <ul>
+                  <li>
+                    <a href='tel:+8089495334'>+8089495334</a>
+                  </li>
+                  <li>
+                    <a href='mailto:serviceswapcenter@yahoo.com'>
+                      serviceswapcenter@yahoo.com
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

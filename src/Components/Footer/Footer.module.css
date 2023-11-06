@@ -8,12 +8,10 @@
   padding: 2rem 1rem;
   width: 100%;
 }
-.footerBrand {
-  width: 50%;
-}
 .footerContent {
-  width: 50%;
+  width: 100%;
   display: grid;
+  justify-content: space-between;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2rem;
 }
@@ -70,7 +68,7 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 568px) {
   .footerContent {
     grid-template-columns: 1fr;
     margin: 1rem 0rem;

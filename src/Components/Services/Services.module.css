@@ -1,0 +1,75 @@
+.sectionTitle {
+  margin: 1rem 0;
+}
+.sectionTitle h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+.servicesItem {
+  margin: 2rem 0;
+}
+.servicesItem img {
+  width: 100%;
+}
+.servicesItemContent h1,
+h2,
+h3,
+h4 {
+  margin: 0.3rem 0;
+  font-weight: 400;
+}
+.servicesItemContent h1 {
+  font-size: 2rem;
+  font-weight: bolder;
+}
+.servicesItemContent h2 {
+  font-size: 2rem;
+}
+.servicesItemContent h3 {
+  font-size: 1.5rem;
+}
+.servicesItemContent h4 {
+  font-size: 1.2rem;
+}
+.servicesAuthor {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.servicesAuthor img {
+  width: 48px;
+  border-radius: 100px;
+}
+.viewMore button,
+.viewAll button {
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 1rem;
+  background: tomato;
+  padding: 0.5rem 2rem;
+  color: white;
+  border-radius: 0.5rem;
+}
+.viewAll button {
+  padding: 0.5rem 2rem;
+}
+.viewAll button a {
+  color: #fff;
+}
+
+@media (max-width: 400px) {
+  .servicesItemContent h1 {
+    font-size: 1.5rem;
+  }
+  .servicesItemContent h2 {
+    font-size: 1.5rem;
+  }
+  .servicesItemContent h3 {
+    font-size: 1rem;
+  }
+  .servicesItemContent h4 {
+    font-size: 0.8rem;
+  }
+}

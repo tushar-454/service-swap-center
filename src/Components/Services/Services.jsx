@@ -1,8 +1,83 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import Toast from '../../Utils/Toast/Toast';
+import search from '../../assets/icon/search.png';
+import Container from '../Reusable/Container';
+import Input from '../UI/Input';
+import classes from './Services.module.css';
 const Services = () => {
+  const [services, setServices] = useState([]);
+  const [filterServices, setFilterServices] = useState([]);
+  const handleSearch = (e) => {
+    const value = e.target.value;
+    const searchServices = services.filter((service) =>
+      service.name.toLowerCase().includes(value.toLowerCase())
+    );
+    if (searchServices.length === 0) {
+      Toast('No services Found!', 'info');
+    }
+    if (value === '') {
+      setFilterServices(services);
+      return;
+    }
+    setFilterServices(searchServices);
+  };
+  useEffect(() => {
+    axios.get('/services').then((res) => {
+      setServices(res.data);
+      setFilterServices(res.data);
+    });
+  }, []);
   return (
-    <div>
-      <h1>This is services section</h1>
-    </div>
+    <section>
+      <Container>
+        <div className={classes.sectionTitle}>
+          <h1>Our All Services</h1>
+        </div>
+        <div className={classes.searchServices}>
+          <Input
+            displayName={'Service Name'}
+            id={'search'}
+            type={'text'}
+            icon={search}
+            placeholder={'Search your services'}
+            onChange={handleSearch}
+          />
+        </div>
+        <div className={classes.servicesWraper}>
+          {filterServices?.map((service, index) => (
+            <div key={index} className={classes.servicesItem}>
+              <img src={service.image} alt={service.image} />
+              <div className={classes.servicesItemContent}>
+                <h1>{service.name}</h1>
+
+                <h2>
+                  <b>Description:</b>
+                  {service.description}
+                </h2>
+
+                <h3>
+                  <b>Price:</b> {service.price}
+                </h3>
+                <h4>
+                  <b>Area:</b> {service.servicearea}
+                </h4>
+              </div>
+
+              <div className={classes.servicesAuthorWrap}>
+                <div className={classes.servicesAuthor}>
+                  <img src={service.authorImage} alt={service.authorImage} />
+                  <h3>{service.authorName}</h3>
+                </div>
+                <div className={classes.viewMore}>
+                  <button>view more</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 };
 

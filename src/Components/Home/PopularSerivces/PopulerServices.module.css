@@ -51,7 +51,8 @@
 .viewAll button {
   padding: 0.5rem 2rem;
 }
-.viewAll button a {
+.viewAll button a,
+.viewMore button a {
   color: #fff;
 }
 .popularServicesItemContent {

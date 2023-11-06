@@ -1,10 +1,13 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import athor from '../../../assets/icon/user.png';
-import service1 from '../../../assets/services1.jpg';
 import Container from '../../Reusable/Container';
 import classes from './PopulerServices.module.css';
-const popularServicesArray = [{}, {}, {}, {}];
 const PopulerServices = () => {
+  const [popularServices, setPopularServices] = useState([]);
+  useEffect(() => {
+    axios.get('/services').then((res) => setPopularServices(res.data));
+  }, []);
   return (
     <section>
       <Container>
@@ -12,26 +15,30 @@ const PopulerServices = () => {
           <h1>Popular Services</h1>
         </div>
         <div className={classes.popularServicesWrap}>
-          {popularServicesArray?.map((item, index) => (
+          {popularServices?.slice(0, 4).map((service, index) => (
             <div key={index} className={classes.popularServicesItem}>
-              <img src={service1} alt='services img' />
+              <img src={service.image} alt='services img' />
               <div className={classes.popularServicesItemContent}>
-                <h3>Child Co opareatiov</h3>
+                <h1>{service.name}</h1>
 
                 <p>
-                  beauty lies in its unpredictable moments; cherish them all.
+                  <b>Description</b>
+                  {service.description}
                 </p>
-
-                <p>Price</p>
+                <p>
+                  <b>Price:</b> {service.price}
+                </p>
               </div>
 
               <div className={classes.servicesAuthorWrap}>
                 <div className={classes.servicesAuthor}>
-                  <img src={athor} alt='authorimg' />
-                  <h3>authorname</h3>
+                  <img src={service.authorImage} alt='authorimg' />
+                  <h3>{service.authorName}</h3>
                 </div>
                 <div className={classes.viewMore}>
-                  <button>view more</button>
+                  <button>
+                    <Link to={`/service/${service._id}`}>view Details</Link>
+                  </button>
                 </div>
               </div>
             </div>

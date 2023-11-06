@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Toast from '../../Utils/Toast/Toast';
@@ -68,6 +69,9 @@ const Login = () => {
   };
   return (
     <section>
+      <Helmet>
+        <title>Services Swap Center | Login</title>
+      </Helmet>
       <Container>
         <LogSignLay
           illustration={loginIllustration}

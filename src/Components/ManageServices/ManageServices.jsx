@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Container from '../Reusable/Container';
@@ -85,6 +86,9 @@ const ManageServices = () => {
   }, [willUpdateId, fetch]);
   return (
     <section>
+      <Helmet>
+        <title>Services Swap Center | Manage Services</title>
+      </Helmet>
       <Container>
         <div className={classes.sectionTitle}>
           <h1>Manage your Services</h1>

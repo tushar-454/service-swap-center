@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 import Container from '../Reusable/Container';
@@ -63,6 +64,9 @@ const SingleService = () => {
   }, [id]);
   return (
     <section>
+      <Helmet>
+        <title>{`Serivce - ${service.name}`}</title>
+      </Helmet>
       <Container>
         <div className={classes.servicesItem}>
           <img src={image} alt={image} />

@@ -1,6 +1,7 @@
 import { updateProfile } from 'firebase/auth';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { Auth, storage } from '../../Firebase/firebase-config';
@@ -192,6 +193,9 @@ const Signup = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>Services Swap Center | Signup</title>
+      </Helmet>
       <Container>
         <LogSignLay
           illustration={signupIllustration}

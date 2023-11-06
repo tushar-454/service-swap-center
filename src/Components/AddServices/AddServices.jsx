@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Toast from '../../Utils/Toast/Toast';
 import area from '../../assets/icon/area.png';
@@ -98,6 +99,9 @@ const AddServices = () => {
   };
   return (
     <section>
+      <Helmet>
+        <title>Services Swap Center | Add Services</title>
+      </Helmet>
       <Container>
         <div className={classes.sectionTitle}>
           <h1>Add your Services</h1>

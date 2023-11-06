@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import Toast from '../../Utils/Toast/Toast';
 import search from '../../assets/icon/search.png';
@@ -32,6 +33,9 @@ const Services = () => {
   }, []);
   return (
     <section>
+      <Helmet>
+        <title>Services Swap Center | Services</title>
+      </Helmet>
       <Container>
         <div className={classes.sectionTitle}>
           <h1>Our All Services</h1>

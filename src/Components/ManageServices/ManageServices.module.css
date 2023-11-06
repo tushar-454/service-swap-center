@@ -68,9 +68,68 @@
   font-weight: 500;
   color: #ff0000;
 }
+.bookingModalWrap {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: #1c1c1c94;
+  backdrop-filter: blur(1rem);
+  border-radius: 1rem;
+  transform-origin: center;
+  opacity: 1;
+  visibility: visible;
+  animation: modalshow 0.2s 1;
+  padding: 2rem;
+  overflow: auto;
+}
+@keyframes modalshow {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.modalImage {
+  margin-top: 1rem;
+}
+.modalImage img {
+  width: 200px;
+  border-radius: 1rem;
+}
+.bookingModal {
+  position: relative;
+}
+.modalHideBtn {
+  border: none;
+  outline: none;
+  width: 2rem;
+  height: 2rem;
+  background: #000;
+  color: #fff;
+  border-radius: 100px;
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  cursor: pointer;
+}
+.inputGroup {
+  display: flex;
+  gap: 1rem;
+}
 @media (max-width: 768px) {
   .manageServicesWrap {
     grid-template-columns: 1fr;
+  }
+  .inputGroup {
+    flex-direction: column;
   }
 }
 

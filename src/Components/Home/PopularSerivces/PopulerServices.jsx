@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import athor from '../../../assets/icon/user.png';
 import service1 from '../../../assets/services1.jpg';
 import Container from '../../Reusable/Container';
@@ -37,7 +38,9 @@ const PopulerServices = () => {
           ))}
         </div>
         <div className={classes.viewAll}>
-          <button>View All</button>
+          <button>
+            <Link to={'/services'}>View All</Link>
+          </button>
         </div>
       </Container>
     </section>

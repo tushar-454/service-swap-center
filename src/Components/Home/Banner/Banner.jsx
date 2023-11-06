@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import sliderOneImg from '../../../assets/services1.jpg';
 import sliderTwoImg from '../../../assets/services2.jpg';
 import sliderThreeImg from '../../../assets/services3.jpg';
@@ -6,8 +6,6 @@ import sliderFourImg from '../../../assets/services4.jpg';
 import sliderFiveImg from '../../../assets/services5.jpg';
 import sliderSixImg from '../../../assets/services6.jpg';
 import sliderSevenImg from '../../../assets/services7.jpg';
-// import Container from '../../Reusable/Container';
-import { useState } from 'react';
 import classes from './Banner.module.css';
 
 const Banner = () => {

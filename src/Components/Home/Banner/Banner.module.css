@@ -1,7 +1,7 @@
 .sliderWrap {
   width: 100%;
   position: relative;
-  margin: 2rem 0;
+  padding: 0 0.5rem;
 }
 .slideWrap {
   width: 100%;

@@ -1,6 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom';
+import AddServices from '../Components/AddServices/AddServices';
 import Home from '../Components/Home/Home';
 import Login from '../Components/Login/Login';
+import MySchedules from '../Components/MySchedules/MySchedules';
+import MyServices from '../Components/MyServices/MyServices';
 import Services from '../Components/Services/Services';
 import Signup from '../Components/Signup/Signup';
 import PrivateRoutes from '../Utils/PrivateRoutes/PrivateRoutes';
@@ -41,6 +44,18 @@ const routes = createBrowserRouter([
             <Services />
           </PrivateRoutes>
         ),
+      },
+      {
+        path: '/my-services',
+        element: <MyServices />,
+      },
+      {
+        path: '/add-services',
+        element: <AddServices />,
+      },
+      {
+        path: '/my-schedules',
+        element: <MySchedules />,
       },
     ],
   },

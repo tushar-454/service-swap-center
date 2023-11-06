@@ -82,13 +82,22 @@ const Navbar = () => {
                     dropDownShow && classes.dropdownShow
                   }`}
                 >
-                  <Link className={`itemOfNav ${classes.navItem}`}>
+                  <Link
+                    to={'/my-services'}
+                    className={`itemOfNav ${classes.navItem}`}
+                  >
                     <span>My-Services</span>
                   </Link>
-                  <Link className={`itemOfNav ${classes.navItem}`}>
+                  <Link
+                    to={'/add-services'}
+                    className={`itemOfNav ${classes.navItem}`}
+                  >
                     <span>Add-Services</span>
                   </Link>
-                  <Link className={`itemOfNav ${classes.navItem}`}>
+                  <Link
+                    to={'/my-schedules'}
+                    className={`itemOfNav ${classes.navItem}`}
+                  >
                     <span>My-Schedules</span>
                   </Link>
                 </div>

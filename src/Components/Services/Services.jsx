@@ -8,6 +8,7 @@ import classes from './Services.module.css';
 const Services = () => {
   const [services, setServices] = useState([]);
   const [filterServices, setFilterServices] = useState([]);
+  const [showRange, setShowRange] = useState(6);
   const handleSearch = (e) => {
     const value = e.target.value;
     const searchServices = services.filter((service) =>
@@ -45,7 +46,7 @@ const Services = () => {
           />
         </div>
         <div className={classes.servicesWraper}>
-          {filterServices?.map((service, index) => (
+          {filterServices?.slice(0, showRange).map((service, index) => (
             <div key={index} className={classes.servicesItem}>
               <img src={service.image} alt={service.image} />
               <div className={classes.servicesItemContent}>
@@ -75,6 +76,14 @@ const Services = () => {
               </div>
             </div>
           ))}
+        </div>
+        <div
+          className={`${classes.viewAll} ${
+            showRange !== 6 ? classes.hideBtn : undefined
+          }`}
+          onClick={() => setShowRange(services.length)}
+        >
+          <button>View All</button>
         </div>
       </Container>
     </section>

@@ -52,13 +52,20 @@ h4 {
   color: white;
   border-radius: 0.5rem;
 }
+.viewAll {
+  text-align: center;
+  margin: 2rem 0;
+}
 .viewAll button {
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 5rem;
+  cursor: pointer;
 }
 .viewAll button a {
   color: #fff;
 }
-
+.hideBtn {
+  display: none;
+}
 @media (max-width: 400px) {
   .servicesItemContent h1 {
     font-size: 1.5rem;

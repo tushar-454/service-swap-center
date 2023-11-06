@@ -6,6 +6,7 @@ import MySchedules from '../Components/MySchedules/MySchedules';
 import MyServices from '../Components/MyServices/MyServices';
 import Services from '../Components/Services/Services';
 import Signup from '../Components/Signup/Signup';
+import SingleService from '../Components/SingleService/SingleService';
 import PrivateRoutes from '../Utils/PrivateRoutes/PrivateRoutes';
 import PublicRoutes from '../Utils/PublicRoutes/PublicRoutes';
 import ErrorRoutes from './ErrorRoutes';
@@ -56,6 +57,14 @@ const routes = createBrowserRouter([
       {
         path: '/my-schedules',
         element: <MySchedules />,
+      },
+      {
+        path: '/service/:id',
+        element: (
+          <PrivateRoutes>
+            <SingleService />
+          </PrivateRoutes>
+        ),
       },
     ],
   },

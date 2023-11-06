@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Toast from '../../Utils/Toast/Toast';
 import search from '../../assets/icon/search.png';
 import Container from '../Reusable/Container';
@@ -71,7 +72,9 @@ const Services = () => {
                   <h3>{service.authorName}</h3>
                 </div>
                 <div className={classes.viewMore}>
-                  <button>view more</button>
+                  <button>
+                    <Link to={`/service/${service._id}`}>view Details</Link>
+                  </button>
                 </div>
               </div>
             </div>

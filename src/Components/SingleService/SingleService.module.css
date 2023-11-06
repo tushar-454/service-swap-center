@@ -1,10 +1,3 @@
-.sectionTitle {
-  margin: 1rem 0;
-}
-.sectionTitle h1 {
-  font-size: 2rem;
-  text-align: center;
-}
 .servicesItem {
   margin: 2rem 0;
 }
@@ -56,7 +49,8 @@ h4 {
   text-align: center;
   margin: 2rem 0;
 }
-.viewAll button {
+.viewAll button,
+.viewMore button {
   padding: 0.5rem 5rem;
   cursor: pointer;
 }

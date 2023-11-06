@@ -1,0 +1,11 @@
+.sectionTitle {
+  margin: 1rem 0;
+}
+.sectionTitle h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+.inputGroup {
+  display: flex;
+  gap: 1rem;
+}

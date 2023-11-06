@@ -24,6 +24,13 @@ const Navbar = () => {
   const [navShow, setNavShow] = useState(false);
   const [dropDownShow, setDropDownShow] = useState(false);
   useEffect(() => {
+    const itemsOfNav = document.querySelectorAll('.itemOfNav');
+    itemsOfNav.forEach((item) => {
+      item.addEventListener('click', () => {
+        setNavShow(false);
+        setDropDownShow(false);
+      });
+    });
     window.addEventListener('scroll', () => {
       setNavShow(false);
       setDropDownShow(false);
@@ -42,7 +49,11 @@ const Navbar = () => {
         className={`${classes.navItemsWrap} ${navShow ? classes.navShow : ''}`}
       >
         {navItems?.map((item) => (
-          <NavLink key={item.id} to={item.path} className={classes.navItem}>
+          <NavLink
+            key={item.id}
+            to={item.path}
+            className={`itemOfNav ${classes.navItem}`}
+          >
             {({ isActive }) => (
               <span className={isActive ? classes.active : ''}>
                 {item.name}
@@ -71,24 +82,27 @@ const Navbar = () => {
                     dropDownShow && classes.dropdownShow
                   }`}
                 >
-                  <Link className={classes.navItem}>
+                  <Link className={`itemOfNav ${classes.navItem}`}>
                     <span>My-Services</span>
                   </Link>
-                  <Link className={classes.navItem}>
+                  <Link className={`itemOfNav ${classes.navItem}`}>
                     <span>Add-Services</span>
                   </Link>
-                  <Link className={classes.navItem}>
+                  <Link className={`itemOfNav ${classes.navItem}`}>
                     <span>My-Schedules</span>
                   </Link>
                 </div>
               </div>
-              <Link className={classes.navItem} onClick={logOutAccount}>
+              <Link
+                className={`itemOfNav ${classes.navItem}`}
+                onClick={logOutAccount}
+              >
                 <span>Logout</span>
               </Link>
             </>
           )}
         </>
-        <User />
+        <User setNavShow={setNavShow} setDropDownShow={setDropDownShow} />
       </div>
     </>
   );

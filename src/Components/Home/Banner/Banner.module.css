@@ -50,20 +50,21 @@
 .sliderButton {
   display: flex;
   gap: 1rem;
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 4rem;
 }
 .sliderButton button {
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  background-color: #80808090;
-  width: 3rem;
+  background-color: #7e7e7e;
+  width: 2rem;
+  height: 2rem;
   border: none;
   outline: none;
-  height: 3rem;
   border-radius: 100px;
   cursor: pointer;
   transition: 0.2s;
@@ -71,7 +72,9 @@
 .sliderButton button :hover {
   background-color: red !important;
 }
-
+.active {
+  background-color: #1a1a1a !important;
+}
 @media (max-width: 768px) {
   .slideWrap {
     height: 500px;
@@ -99,5 +102,8 @@
   }
   .slideContent p {
     width: 100%;
+  }
+  .sliderButton {
+    bottom: 3rem;
   }
 }

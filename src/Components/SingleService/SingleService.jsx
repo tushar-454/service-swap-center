@@ -52,6 +52,8 @@ const SingleService = () => {
       date,
       instruction,
       whoBooked: user?.email,
+      customerImg: user?.photoURL,
+      customerName: user?.displayName,
       status: '',
     };
     axios

@@ -20,6 +20,9 @@
 .bookingServicesItem img {
   width: 100%;
 }
+.bookingServicesItem div {
+  margin: 0.3rem 0;
+}
 .servicesAuthorWrap {
   display: flex;
   justify-content: space-between;

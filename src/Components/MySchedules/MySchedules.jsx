@@ -89,10 +89,19 @@ const MySchedules = () => {
                   <div className={classes.servicesAuthor}>
                     <img src={pendingItem.customerImg} alt='CustomerImg' />
                     <h3>{pendingItem.customerName}</h3>
-                    <p>Take your service at 9/12/2023 from london</p>
+
+                    <div className={classes.viewMore}>
+                      <p>
+                        Take your service, Date: {pendingItem.date}, Area{' '}
+                        {pendingItem.servicearea}
+                      </p>
+                    </div>
                   </div>
                 </div>
-
+                <p className={classes.instruction}>
+                  <b>Instruction</b>:
+                  {pendingItem.instruction || 'No Instruction'}
+                </p>
                 <div className={classes.servicesAuthorWrap}>
                   <div className={classes.servicesAuthor}>
                     <img src={pendingItem.authorImage} alt='authorimg' />

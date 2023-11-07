@@ -36,6 +36,7 @@ const ManageServices = () => {
             );
             const remaining = userAllServices.filter((item) => item._id !== id);
             setShowingUserServices(remaining);
+            setFetch(!fetch);
           } else {
             swal('There was an error !', '', 'error');
           }

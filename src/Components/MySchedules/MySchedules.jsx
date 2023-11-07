@@ -11,19 +11,33 @@ const MySchedules = () => {
   const [showingMyBooked, setShowingMyBooked] = useState([]);
   const [myPendingWork, setMyPendingWork] = useState([]);
   const { user } = useContext(AuthContext);
+  const [fetch, setFetch] = useState(false);
   // const [pendingWorkId, setPendingWorkId] = useState('');
 
   const handleDeleteUserBookedItem = (id) => {
-    axios
-      .delete(`/booking?whoBooked=${user?.email}&id=${id}`)
-      .then((res) => {
-        if (res.data.deletedCount === 1) {
-          swal('Delete successfully', '', 'success');
-          const remaing = myBooked.filter((item) => item._id !== id);
-          setShowingMyBooked(remaing);
-        }
-      })
-      .catch((error) => swal('There was an error', error.message, 'error'));
+    swal({
+      title: 'Are you sure?',
+      text: 'You want to delete your booked item.',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios
+          .delete(`/booking?whoBooked=${user?.email}&id=${id}`)
+          .then((res) => {
+            if (res.data.deletedCount === 1) {
+              swal('Delete successfully', '', 'success');
+              const remaing = myBooked.filter((item) => item._id !== id);
+              setShowingMyBooked(remaing);
+              setFetch(!fetch);
+            }
+          })
+          .catch((error) => swal('There was an error', error.message, 'error'));
+      } else {
+        swal('Your booking item is not deleted!');
+      }
+    });
   };
 
   const handlePendingStatusChange = (e, id) => {
@@ -38,14 +52,22 @@ const MySchedules = () => {
       .catch((error) => swal('There was an error !', error.message, 'error'));
   };
   useEffect(() => {
+    setTimeout(() => {
+      setFetch(!fetch);
+    }, 100);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
     axios
       .get(`/booking?email=${user?.email}&type=email`)
       .then((res) => setMyPendingWork(res.data));
+  }, [user, fetch]);
+  useEffect(() => {
     axios.get(`/booking?email=${user?.email}&type=whoBooked`).then((res) => {
       setShowingMyBooked(res.data);
       setMybooked(res.data);
     });
-  }, [user.email]);
+  }, [user, fetch]);
   return (
     <section>
       <Helmet>

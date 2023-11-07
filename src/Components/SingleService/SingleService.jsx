@@ -164,14 +164,16 @@ const SingleService = () => {
             </div>
           </div>
         )}
-        <div className={classes.sectionTitle}>
-          <h1>Other Services</h1>
-        </div>{' '}
-        {allServicesCurProvider?.length === 1 && (
+        {allServicesCurProvider?.length > 1 && (
+          <div className={classes.sectionTitle}>
+            <h1>Other Services</h1>
+          </div>
+        )}
+        {/* {allServicesCurProvider?.length === 1 && (
           <div className={classes.noFound}>
             <p>No more services for this provider</p>
           </div>
-        )}
+        )} */}
         <div className={classes.otherServicesWrap}>
           {allServicesCurProvider
             ?.filter((item) => item._id !== id)

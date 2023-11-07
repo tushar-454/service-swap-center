@@ -64,7 +64,18 @@ const MySchedules = () => {
                     <b>Price:</b> {bookItem.price}
                   </p>
                 </div>
-
+                <p>
+                  <b>Instruction: </b>
+                  {bookItem.instruction}
+                </p>
+                <p>
+                  <b>Status: </b>
+                  {bookItem.status}
+                </p>
+                <p>
+                  <b>Date: </b>
+                  {bookItem.date}
+                </p>
                 <div className={classes.servicesAuthorWrap}>
                   <div className={classes.servicesAuthor}>
                     <img src={bookItem.authorImage} alt='authorimg' />

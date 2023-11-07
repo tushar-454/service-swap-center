@@ -50,6 +50,18 @@
   padding: 0.5rem;
   color: white;
   border-radius: 0.5rem;
+  cursor: pointer;
+}
+.viewMore select {
+  border: none;
+  outline: none;
+  font-weight: 500;
+  font-size: 1rem;
+  background: #c9c9c9;
+  padding: 0.5rem;
+  color: #000;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 .viewAll button {
   padding: 0.5rem 2rem;

@@ -59,7 +59,7 @@ const Services = () => {
 
                 <h2>
                   <b>Description:</b>
-                  {service.description}
+                  {service.description.slice(0, 100)}
                 </h2>
 
                 <h3>

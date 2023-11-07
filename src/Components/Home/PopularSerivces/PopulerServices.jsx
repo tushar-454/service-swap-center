@@ -23,7 +23,7 @@ const PopulerServices = () => {
 
                 <p>
                   <b>Description</b>
-                  {service.description}
+                  {service.description.slice(0, 100)}
                 </p>
                 <p>
                   <b>Price:</b> {service.price}

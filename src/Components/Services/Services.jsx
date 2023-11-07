@@ -86,7 +86,7 @@ const Services = () => {
         </div>
         <div
           className={`${classes.viewAll} ${
-            showRange !== 6 ? classes.hideBtn : undefined
+            showRange > 6 || services.length === 6 ? classes.hideBtn : undefined
           }`}
           onClick={() => setShowRange(services.length)}
         >

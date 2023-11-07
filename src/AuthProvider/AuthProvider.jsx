@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -48,9 +49,17 @@ const AuthProvider = ({ children }) => {
         console.log(currentUser);
         setUser(currentUser);
         setLoading(false);
+        axios
+          .post('/jwt', { email: currentUser.email })
+          .then((res) => console.log(res.data))
+          .catch((error) => console.log(error.message));
       } else {
         setUser(null);
         setLoading(false);
+        axios
+          .post('/jwtremove', {})
+          .then(() => {})
+          .catch((error) => console.log(error.message));
       }
     });
     return () => unsubscriber();

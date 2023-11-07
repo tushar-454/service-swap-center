@@ -37,16 +37,15 @@ const MySchedules = () => {
       })
       .catch((error) => swal('There was an error !', error.message, 'error'));
   };
-
   useEffect(() => {
+    axios
+      .get(`/booking?email=${user?.email}&type=email`)
+      .then((res) => setMyPendingWork(res.data));
     axios.get(`/booking?email=${user?.email}&type=whoBooked`).then((res) => {
       setShowingMyBooked(res.data);
       setMybooked(res.data);
     });
-    axios
-      .get(`/booking?email=${user?.email}&type=email`)
-      .then((res) => setMyPendingWork(res.data));
-  }, [user.email, showingMyBooked]);
+  }, [user.email]);
   return (
     <section>
       <Helmet>

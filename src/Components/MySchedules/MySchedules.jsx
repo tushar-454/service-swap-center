@@ -11,6 +11,7 @@ const MySchedules = () => {
   const [showingMyBooked, setShowingMyBooked] = useState([]);
   const [myPendingWork, setMyPendingWork] = useState([]);
   const { user } = useContext(AuthContext);
+  // const [pendingWorkId, setPendingWorkId] = useState('');
 
   const handleDeleteUserBookedItem = (id) => {
     axios
@@ -23,6 +24,18 @@ const MySchedules = () => {
         }
       })
       .catch((error) => swal('There was an error', error.message, 'error'));
+  };
+
+  const handlePendingStatusChange = (e, id) => {
+    const statusValue = e.target.value;
+    axios
+      .put(`/booking?id=${id}`, { status: statusValue })
+      .then((res) => {
+        if (res.data.modifiedCount === 1) {
+          swal('Update status successfully', '', 'success');
+        }
+      })
+      .catch((error) => swal('There was an error !', error.message, 'error'));
   };
 
   useEffect(() => {
@@ -140,7 +153,13 @@ const MySchedules = () => {
                     <h3>{pendingItem.authorName}</h3>
                   </div>
                   <div className={classes.viewMore}>
-                    <select name='' id=''>
+                    <select
+                      onChange={(e) =>
+                        handlePendingStatusChange(e, pendingItem._id)
+                      }
+                      name='status'
+                      defaultValue={pendingItem.status}
+                    >
                       <option value='Pending'>Pending</option>
                       <option value='In-Progress'>In-Progress</option>
                       <option value='Completed'>Completed</option>

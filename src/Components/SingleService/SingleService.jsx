@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Container from '../Reusable/Container';
@@ -16,6 +16,7 @@ const SingleService = () => {
   const [modalShow, setModalShow] = useState(false);
   const [bookingData, setBookingData] = useState({ date: '', instruction: '' });
   const [error, setError] = useState({ date: '' });
+  const [allServicesCurProvider, setAllServicesCurProvider] = useState([]);
   const {
     image,
     name,
@@ -67,7 +68,10 @@ const SingleService = () => {
   };
   useEffect(() => {
     axios(`/service/${id}`).then((res) => setService(res.data[0]));
-  }, [id]);
+    axios(`services?email=${email}`).then((res) =>
+      setAllServicesCurProvider(res.data)
+    );
+  }, [id, email]);
   return (
     <section>
       <Helmet>
@@ -160,6 +164,46 @@ const SingleService = () => {
             </div>
           </div>
         )}
+        <div className={classes.sectionTitle}>
+          <h1>Other Services</h1>
+        </div>{' '}
+        {allServicesCurProvider?.length === 1 && (
+          <div className={classes.noFound}>
+            <p>No more services for this provider</p>
+          </div>
+        )}
+        <div className={classes.otherServicesWrap}>
+          {allServicesCurProvider
+            ?.filter((item) => item._id !== id)
+            ?.map((service, index) => (
+              <div key={index} className={classes.otherServicesItem}>
+                <img src={service.image} alt='services img' />
+                <div className={classes.otherServicesItemContent}>
+                  <h1>{service.name}</h1>
+
+                  <p>
+                    <b>Description</b>
+                    {service.description.slice(0, 100)}
+                  </p>
+                  <p>
+                    <b>Price:</b> {service.price}
+                  </p>
+                </div>
+
+                <div className={classes.servicesAuthorWrap}>
+                  <div className={classes.servicesAuthor}>
+                    <img src={service.authorImage} alt='authorimg' />
+                    <h3>{service.authorName}</h3>
+                  </div>
+                  <div className={classes.viewMore}>
+                    <button>
+                      <Link to={`/service/${service._id}`}>view Details</Link>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+        </div>
       </Container>
     </section>
   );

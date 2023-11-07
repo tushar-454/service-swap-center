@@ -113,6 +113,9 @@ const ManageServices = () => {
                   <p>
                     <b>Price:</b> {item.price}
                   </p>
+                  <p>
+                    <b>Area:</b> {item.servicearea}
+                  </p>
                 </div>
 
                 <div className={classes.servicesAuthorWrap}>

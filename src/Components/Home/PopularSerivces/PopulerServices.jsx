@@ -28,6 +28,9 @@ const PopulerServices = () => {
                 <p>
                   <b>Price:</b> {service.price}
                 </p>
+                <p>
+                  <b>Area:</b> {service.servicearea}
+                </p>
               </div>
 
               <div className={classes.servicesAuthorWrap}>

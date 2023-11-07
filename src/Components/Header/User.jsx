@@ -17,6 +17,9 @@ const User = ({ setNavShow, setDropDownShow }) => {
         setDropDownShow(false);
       });
     });
+    window.addEventListener('scroll', () => {
+      setShowProDropdown(false);
+    });
   }, [setNavShow, setDropDownShow]);
   return (
     <>

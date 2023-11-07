@@ -1,22 +1,39 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Container from '../Reusable/Container';
 import classes from './MySchedules.module.css';
 
 const MySchedules = () => {
   const [myBooked, setMybooked] = useState([]);
+  const [showingMyBooked, setShowingMyBooked] = useState([]);
   const [myPendingWork, setMyPendingWork] = useState([]);
   const { user } = useContext(AuthContext);
-  useEffect(() => {
+
+  const handleDeleteUserBookedItem = (id) => {
     axios
-      .get(`/booking?email=${user?.email}&type=whoBooked`)
-      .then((res) => setMybooked(res.data));
+      .delete(`/booking?whoBooked=${user?.email}&id=${id}`)
+      .then((res) => {
+        if (res.data.deletedCount === 1) {
+          swal('Delete successfully', '', 'success');
+          const remaing = myBooked.filter((item) => item._id !== id);
+          setShowingMyBooked(remaing);
+        }
+      })
+      .catch((error) => swal('There was an error', error.message, 'error'));
+  };
+
+  useEffect(() => {
+    axios.get(`/booking?email=${user?.email}&type=whoBooked`).then((res) => {
+      setShowingMyBooked(res.data);
+      setMybooked(res.data);
+    });
     axios
       .get(`/booking?email=${user?.email}&type=email`)
       .then((res) => setMyPendingWork(res.data));
-  }, [user.email]);
+  }, [user.email, showingMyBooked]);
   return (
     <section>
       <Helmet>
@@ -26,14 +43,14 @@ const MySchedules = () => {
         <div className={classes.sectionTitle}>
           <h1>My Booking</h1>
         </div>{' '}
-        {myBooked.length === 0 && (
+        {showingMyBooked.length === 0 && (
           <div className={classes.noFound}>
             <p>You have not added any services</p>
           </div>
         )}
         <div className={classes.bookingServicesWrap}>
-          {myBooked.length > 0 &&
-            myBooked?.map((bookItem, index) => (
+          {showingMyBooked.length > 0 &&
+            showingMyBooked?.map((bookItem, index) => (
               <div key={index} className={classes.bookingServicesItem}>
                 <img src={bookItem.image} alt='services img' />
                 <div className={classes.bookingServicesItemContent}>
@@ -54,7 +71,11 @@ const MySchedules = () => {
                     <h3>{bookItem.authorName}</h3>
                   </div>
                   <div className={classes.viewMore}>
-                    <button>Delete</button>
+                    <button
+                      onClick={() => handleDeleteUserBookedItem(bookItem._id)}
+                    >
+                      Delete
+                    </button>
                   </div>
                 </div>
               </div>

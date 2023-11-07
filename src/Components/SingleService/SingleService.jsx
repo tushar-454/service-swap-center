@@ -54,7 +54,7 @@ const SingleService = () => {
       whoBooked: user?.email,
       customerImg: user?.photoURL,
       customerName: user?.displayName,
-      status: '',
+      status: 'Pending',
     };
     axios
       .post('/booking', bookedData)

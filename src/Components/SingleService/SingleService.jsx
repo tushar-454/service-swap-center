@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import swal from 'sweetalert';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Container from '../Reusable/Container';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
@@ -10,6 +11,7 @@ import classes from './SingleService.module.css';
 
 const SingleService = () => {
   const [service, setService] = useState({});
+  const { user } = useContext(AuthContext);
   const { id } = useParams();
   const [modalShow, setModalShow] = useState(false);
   const [bookingData, setBookingData] = useState({ date: '', instruction: '' });
@@ -49,6 +51,8 @@ const SingleService = () => {
       email,
       date,
       instruction,
+      whoBooked: user?.email,
+      status: '',
     };
     axios
       .post('/booking', bookedData)

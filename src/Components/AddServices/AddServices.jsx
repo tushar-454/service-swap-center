@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import Toast from '../../Utils/Toast/Toast';
 import area from '../../assets/icon/area.png';
 import desc from '../../assets/icon/desc.png';
 import email from '../../assets/icon/internet.png';
@@ -91,11 +91,11 @@ const AddServices = () => {
       .post('/services', addServiceBody)
       .then((res) => {
         if (res.data.acknowledged) {
-          Toast('Service added successfully', 'success');
+          swal('Service added successfully', '', 'success');
           setAddServices({ ...addServicesInit });
         }
       })
-      .catch(() => Toast('There was an error !', 'error'));
+      .catch(() => swal('There was an error !', '', 'error'));
   };
   return (
     <section>

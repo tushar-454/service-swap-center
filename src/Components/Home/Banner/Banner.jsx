@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Typewriter } from 'react-simple-typewriter';
 import sliderOneImg from '../../../assets/services1.jpg';
 import sliderTwoImg from '../../../assets/services2.jpg';
 import sliderThreeImg from '../../../assets/services3.jpg';
@@ -71,8 +72,26 @@ const Banner = () => {
               <img src={singleSlide.image} />
               <div className={classes.sideContentWrap}>
                 <div className={classes.slideContent}>
-                  <h1>{singleSlide.title}</h1>
-                  <p>{singleSlide.desc}</p>
+                  <h1>
+                    <Typewriter
+                      words={[`${singleSlide.title}`]}
+                      loop={1}
+                      cursor
+                      cursorStyle='_'
+                      typeSpeed={70}
+                      delaySpeed={1000}
+                    />
+                  </h1>
+                  <p>
+                    <Typewriter
+                      words={[`${singleSlide.desc}`]}
+                      loop={1}
+                      cursor
+                      cursorStyle='_'
+                      typeSpeed={50}
+                      delaySpeed={1000}
+                    />
+                  </p>
                 </div>
               </div>
             </div>

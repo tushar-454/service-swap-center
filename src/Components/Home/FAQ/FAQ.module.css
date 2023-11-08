@@ -1,0 +1,32 @@
+.sectionTitle {
+  margin: 2rem 0;
+}
+.sectionTitle h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+.faqWrap {
+  margin: 2rem 0;
+}
+.faq {
+  width: 100%;
+  background-color: #fff;
+  padding: 1rem;
+}
+.question {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.answer {
+  padding: 1rem 0;
+  display: none;
+}
+.questionWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: 0.2s;
+  cursor: pointer;
+}

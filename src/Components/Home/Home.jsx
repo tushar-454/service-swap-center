@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet';
 import Banner from './Banner/Banner';
+import Faq from './FAQ/FAQ';
 import OurTeam from './OurTeam/OurTeam';
 import PopulerServices from './PopularSerivces/PopulerServices';
 import Pricing from './Pricing/Pricing';
@@ -14,6 +15,7 @@ const Home = () => {
       <PopulerServices />
       <OurTeam />
       <Pricing />
+      <Faq />
     </main>
   );
 };

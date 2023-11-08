@@ -1,9 +1,12 @@
+import { useState } from 'react';
+import CountUp from 'react-countup';
+import ScrollTrigger from 'react-scroll-trigger';
 import Container from '../../Reusable/Container';
 import classes from './Pricing.module.css';
 const pricingPlan = [
   {
     type: 'Basic',
-    price: '$99',
+    price: '99',
     desc: 'Essential home services. Perfect for starters.',
     serviceList: [
       'Plumbing check-up',
@@ -13,7 +16,7 @@ const pricingPlan = [
   },
   {
     type: 'Standard',
-    price: '$199',
+    price: '199',
     desc: 'More comprehensive services for an average household.',
     serviceList: [
       'Plumbing repairs',
@@ -23,7 +26,7 @@ const pricingPlan = [
   },
   {
     type: 'Premium',
-    price: '$299',
+    price: '299',
     desc: 'Extensive services for larger homes or full overhauls.',
     serviceList: [
       'Full plumbing overhaul',
@@ -34,6 +37,7 @@ const pricingPlan = [
 ];
 
 const Pricing = () => {
+  const [counteron, setCounteron] = useState(false);
   return (
     <section>
       <Container>
@@ -55,7 +59,17 @@ const Pricing = () => {
                 <b>{price.type}</b>
               </h2>
               <h1 style={{ color: index === 1 ? '#FFF' : '' }}>
-                {price.price}
+                <ScrollTrigger onEnter={() => setCounteron(true)}>
+                  $
+                  {counteron && (
+                    <CountUp
+                      start={0}
+                      end={price.price}
+                      duration={3}
+                      delay={0}
+                    />
+                  )}
+                </ScrollTrigger>
               </h1>
               <p>{price.desc}</p>
               <p>

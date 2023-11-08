@@ -55,8 +55,11 @@
   gap: 1rem;
 }
 .manageServicesItemContent {
-  width: 100%;
+  width: 50%;
   margin: 0.5rem 0;
+}
+.manageServicesItemContent p {
+  text-wrap: wrap;
 }
 .noFound p {
   text-align: center;

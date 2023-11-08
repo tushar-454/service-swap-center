@@ -14,7 +14,7 @@ const AwesomeBtn = ({ style, btnStyle, path, displayName, ...rest }) => {
 };
 AwesomeBtn.propTypes = {
   displayName: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
+  path: PropTypes.string,
   style: PropTypes.object,
   btnStyle: PropTypes.object,
 };

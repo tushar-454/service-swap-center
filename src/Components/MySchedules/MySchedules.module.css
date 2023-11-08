@@ -84,13 +84,16 @@
   color: #fff;
 }
 .bookingServicesItemContent {
-  width: 100%;
+  width: 50%;
   margin: 0.5rem 0;
 }
 .bookingServicesItemContent h1,
 p,
 div {
   margin: 0.4rem 0;
+}
+.bookingServicesItemContent p {
+  text-wrap: wrap;
 }
 .noFound {
   display: flex;

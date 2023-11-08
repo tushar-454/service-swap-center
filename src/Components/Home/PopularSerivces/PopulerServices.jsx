@@ -23,7 +23,9 @@ const PopulerServices = () => {
           {popularServices.length > 0 &&
             popularServices?.slice(0, 4).map((service, index) => (
               <div key={index} className={classes.popularServicesItem}>
-                <img src={service.image} alt='services img' />
+                <div className={classes.popularServicesItemImg}>
+                  <img src={service.image} alt='services img' />
+                </div>
                 <div className={classes.popularServicesItemContent}>
                   <h1>{service.name}</h1>
 

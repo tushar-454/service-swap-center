@@ -19,9 +19,15 @@
   padding: 2rem;
   box-shadow: 0 4px 4px 0 #00000033;
 }
-.popularServicesItem img {
+.popularServicesItemImg {
+  width: 100%;
+}
+.popularServicesItemImg img {
   width: 100%;
   border-radius: 1rem;
+}
+.popularServicesItemContent p {
+  text-wrap: wrap;
 }
 .servicesAuthorWrap {
   display: flex;

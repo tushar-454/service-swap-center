@@ -4,6 +4,12 @@ import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import emailIco from '../../assets/icon/internet.png';
+import instruction from '../../assets/icon/planning.png';
+import serviceName from '../../assets/icon/serviceTo.png';
+import date from '../../assets/icon/timetable.png';
+import provider from '../../assets/icon/user.png';
+import wallet from '../../assets/icon/wallet.png';
 import AwesomeBtn from '../Reusable/AwesomeBtn';
 import Container from '../Reusable/Container';
 import Button from '../UI/Button';
@@ -125,6 +131,7 @@ const SingleService = () => {
                   <Input
                     displayName={'Service Name'}
                     defaultValue={name}
+                    icon={serviceName}
                     readOnly
                   />
                   <div className={classes.modalImage}>
@@ -135,11 +142,13 @@ const SingleService = () => {
                   <Input
                     displayName={'Service Provider Email'}
                     defaultValue={email}
+                    icon={emailIco}
                     readOnly
                   />
                   <Input
                     displayName={'Service Provider Name'}
                     defaultValue={authorName}
+                    icon={provider}
                     readOnly
                   />
                 </div>
@@ -151,8 +160,14 @@ const SingleService = () => {
                     value={bookingData.date}
                     onChange={handleInputChange}
                     error={error.date}
+                    icon={date}
                   />
-                  <Input displayName={'Price'} defaultValue={price} readOnly />
+                  <Input
+                    displayName={'Price'}
+                    defaultValue={price}
+                    icon={wallet}
+                    readOnly
+                  />
                 </div>
                 <Input
                   displayName={'Special Instruction'}
@@ -160,6 +175,7 @@ const SingleService = () => {
                   placeholder={
                     'give your any instruction or customize service you can write here'
                   }
+                  icon={instruction}
                   name={'instruction'}
                   value={bookingData.instruction}
                   onChange={handleInputChange}

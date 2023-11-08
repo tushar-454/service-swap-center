@@ -7,18 +7,27 @@
 }
 .manageServicesWrap {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
-  gap: 2rem;
 }
 .manageServicesItem {
-  background-color: #efefef;
-  border-radius: 0.2rem;
-  padding: 1.5rem;
-}
-.manageServicesItem img {
   width: 100%;
+  background-color: #fff;
+  box-shadow: 0 4px 4px 0 #00000033;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  display: flex;
+  margin-bottom: 2rem;
+  align-items: center;
+  gap: 2rem;
+}
+.manageServicesItemImg {
+  width: 50%;
+  height: 100%;
+}
+.manageServicesItemImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 .servicesAuthorWrap {
   display: flex;
@@ -26,7 +35,7 @@
   align-items: center;
 }
 .servicesAuthorWrap img {
-  width: 2rem;
+  width: 3rem;
 }
 .servicesAuthor {
   display: flex;
@@ -36,30 +45,17 @@
 .servicesAuthor img {
   border-radius: 100px;
 }
-.viewAll {
-  text-align: center;
-  margin: 2rem 0;
+.servicesAuthor h3 {
+  font-weight: 600;
 }
-.viewMore button,
-.viewAll button {
-  border: none;
-  outline: none;
-  font-weight: 500;
-  font-size: 1rem;
-  background: tomato;
-  padding: 0.5rem;
-  color: white;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-.viewAll button {
-  padding: 0.5rem 2rem;
-}
-.viewAll button a,
-.viewMore button a {
-  color: #fff;
+.actionBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 .manageServicesItemContent {
+  width: 100%;
   margin: 0.5rem 0;
 }
 .noFound p {
@@ -75,7 +71,7 @@
   width: 80%;
   height: 80%;
   transform: translate(-50%, -50%) scale(1);
-  background-color: #1c1c1c94;
+  background-color: #bebebe94;
   backdrop-filter: blur(1rem);
   border-radius: 1rem;
   transform-origin: center;
@@ -124,17 +120,29 @@
   display: flex;
   gap: 1rem;
 }
+.manageServicesItemContent {
+  width: 100%;
+}
 @media (max-width: 768px) {
-  .manageServicesWrap {
-    grid-template-columns: 1fr;
+  .manageServicesItemImg {
+    width: 100%;
+  }
+  .manageServicesItem {
+    flex-direction: column;
   }
   .inputGroup {
     flex-direction: column;
   }
+  .manageServicesItemContent {
+    width: 100%;
+  }
 }
-
-@media (max-width: 320px) {
-  .viewMore button {
-    font-size: 0.8rem;
+@media (max-width: 425px) {
+  .manageServicesItem {
+    gap: 0rem;
+  }
+  .servicesAuthorWrap {
+    flex-direction: column;
+    align-items: start;
   }
 }

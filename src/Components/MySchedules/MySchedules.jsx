@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import AwesomeBtn from '../Reusable/AwesomeBtn';
 import Container from '../Reusable/Container';
 import classes from './MySchedules.module.css';
 
@@ -12,7 +13,6 @@ const MySchedules = () => {
   const [myPendingWork, setMyPendingWork] = useState([]);
   const { user } = useContext(AuthContext);
   const [fetch, setFetch] = useState(false);
-  // const [pendingWorkId, setPendingWorkId] = useState('');
 
   const handleDeleteUserBookedItem = (id) => {
     swal({
@@ -42,6 +42,13 @@ const MySchedules = () => {
 
   const handlePendingStatusChange = (e, id) => {
     const statusValue = e.target.value;
+    const item =
+      e.target.parentElement.parentElement.parentElement.parentElement;
+    if (statusValue === 'Completed') {
+      item.style.filter = 'brightness(0.9)';
+    } else {
+      item.style.filter = 'brightness(1)';
+    }
     axios
       .put(`/booking?id=${id}`, { status: statusValue })
       .then((res) => {
@@ -86,10 +93,11 @@ const MySchedules = () => {
           {showingMyBooked.length > 0 &&
             showingMyBooked?.map((bookItem, index) => (
               <div key={index} className={classes.bookingServicesItem}>
-                <img src={bookItem.image} alt='services img' />
+                <div className={classes.serviceItemImg}>
+                  <img src={bookItem.image} alt='services img' />
+                </div>
                 <div className={classes.bookingServicesItemContent}>
                   <h1>{bookItem.name}</h1>
-
                   <p>
                     <b>Description</b>
                     {bookItem.description}
@@ -97,30 +105,28 @@ const MySchedules = () => {
                   <p>
                     <b>Price:</b> {bookItem.price}
                   </p>
-                </div>
-                <p>
-                  <b>Instruction: </b>
-                  {bookItem.instruction}
-                </p>
-                <p>
-                  <b>Status: </b>
-                  {bookItem.status}
-                </p>
-                <p>
-                  <b>Date: </b>
-                  {bookItem.date}
-                </p>
-                <div className={classes.servicesAuthorWrap}>
-                  <div className={classes.servicesAuthor}>
-                    <img src={bookItem.authorImage} alt='authorimg' />
-                    <h3>{bookItem.authorName}</h3>
-                  </div>
-                  <div className={classes.viewMore}>
-                    <button
+                  <p>
+                    <b>Instruction: </b>
+                    {bookItem.instruction}
+                  </p>
+                  <p>
+                    <b>Status: </b>
+                    {bookItem.status}
+                  </p>
+                  <p>
+                    <b>Date: </b>
+                    {bookItem.date}
+                  </p>
+                  <div className={classes.servicesAuthorWrap}>
+                    <div className={classes.servicesAuthor}>
+                      <img src={bookItem.authorImage} alt='authorimg' />
+                      <h3>{bookItem.authorName}</h3>
+                    </div>
+                    <AwesomeBtn
+                      displayName={'Delete'}
+                      btnStyle={{ background: '#ff0000a6' }}
                       onClick={() => handleDeleteUserBookedItem(bookItem._id)}
-                    >
-                      Delete
-                    </button>
+                    />
                   </div>
                 </div>
               </div>
@@ -137,8 +143,17 @@ const MySchedules = () => {
         <div className={classes.bookingServicesWrap}>
           {myPendingWork.length > 0 &&
             myPendingWork?.map((pendingItem, index) => (
-              <div key={index} className={classes.bookingServicesItem}>
-                <img src={pendingItem.image} alt='services img' />
+              <div
+                key={index}
+                className={classes.bookingServicesItem}
+                style={{
+                  filter:
+                    pendingItem.status === 'Completed' ? 'brightness(0.9)' : '',
+                }}
+              >
+                <div className={classes.serviceItemImg}>
+                  <img src={pendingItem.image} alt='services img' />
+                </div>
                 <div className={classes.bookingServicesItemContent}>
                   <h1>{pendingItem.name}</h1>
 
@@ -149,42 +164,46 @@ const MySchedules = () => {
                   <p>
                     <b>Price:</b> {pendingItem.price}
                   </p>
-                </div>
+                  <p className={classes.instruction}>
+                    <b>Instruction</b>:
+                    {pendingItem.instruction || 'No Instruction'}
+                  </p>
+                  <div className={classes.servicesAuthorWrap}>
+                    <div className={classes.servicesAuthor}>
+                      <img src={pendingItem.customerImg} alt='CustomerImg' />
+                      <h3>
+                        <b>{pendingItem.customerName}</b>
+                      </h3>
 
-                <div className={classes.servicesAuthorWrap}>
-                  <div className={classes.servicesAuthor}>
-                    <img src={pendingItem.customerImg} alt='CustomerImg' />
-                    <h3>{pendingItem.customerName}</h3>
-
-                    <div className={classes.viewMore}>
-                      <p>
-                        Take your service, Date: {pendingItem.date}, Area{' '}
-                        {pendingItem.servicearea}
-                      </p>
+                      <div className={classes.viewMore}>
+                        <p>
+                          Take your service, <b>Date:</b> {pendingItem.date},{' '}
+                          <b>Area</b> {pendingItem.servicearea}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <p className={classes.instruction}>
-                  <b>Instruction</b>:
-                  {pendingItem.instruction || 'No Instruction'}
-                </p>
-                <div className={classes.servicesAuthorWrap}>
-                  <div className={classes.servicesAuthor}>
-                    <img src={pendingItem.authorImage} alt='authorimg' />
-                    <h3>{pendingItem.authorName}</h3>
-                  </div>
-                  <div className={classes.viewMore}>
-                    <select
-                      onChange={(e) =>
-                        handlePendingStatusChange(e, pendingItem._id)
-                      }
-                      name='status'
-                      defaultValue={pendingItem.status}
-                    >
-                      <option value='Pending'>Pending</option>
-                      <option value='In-Progress'>In-Progress</option>
-                      <option value='Completed'>Completed</option>
-                    </select>
+
+                  <div className={classes.servicesAuthorWrap}>
+                    <div className={classes.servicesAuthor}>
+                      <img src={pendingItem.authorImage} alt='authorimg' />
+                      <h3>
+                        <b>{pendingItem.authorName}</b>
+                      </h3>
+                    </div>
+                    <div className={classes.viewMore}>
+                      <select
+                        onChange={(e) =>
+                          handlePendingStatusChange(e, pendingItem._id)
+                        }
+                        name='status'
+                        defaultValue={pendingItem.status}
+                      >
+                        <option value='Pending'>Pending</option>
+                        <option value='In-Progress'>In-Progress</option>
+                        <option value='Completed'>Completed</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>

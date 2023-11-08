@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import AwesomeBtn from '../Reusable/AwesomeBtn';
 import Container from '../Reusable/Container';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
@@ -103,7 +104,9 @@ const ManageServices = () => {
           {showingUserServices.length > 0 &&
             showingUserServices?.map((item) => (
               <div key={item._id} className={classes.manageServicesItem}>
-                <img src={item.image} alt='services img' />
+                <div className={classes.manageServicesItemImg}>
+                  <img src={item.image} alt='services img' />
+                </div>
                 <div className={classes.manageServicesItemContent}>
                   <h1>{item.name}</h1>
 
@@ -117,25 +120,24 @@ const ManageServices = () => {
                   <p>
                     <b>Area:</b> {item.servicearea}
                   </p>
-                </div>
-
-                <div className={classes.servicesAuthorWrap}>
-                  <div className={classes.servicesAuthor}>
-                    <img src={item.authorImage} alt='authorimg' />
-                    <h3>{item.authorName}</h3>
-                  </div>
-                  <div className={classes.viewMore}>
-                    <button
-                      onClick={() => {
-                        setWillUpdateId(item._id);
-                        setModalShow(true);
-                      }}
-                    >
-                      Update
-                    </button>{' '}
-                    <button onClick={() => handleDeleteAddService(item._id)}>
-                      Delete
-                    </button>
+                  <div className={classes.servicesAuthorWrap}>
+                    <div className={classes.servicesAuthor}>
+                      <img src={item.authorImage} alt='authorimg' />
+                      <h3>{item.authorName}</h3>
+                    </div>
+                    <div className={classes.actionBtn}>
+                      <AwesomeBtn
+                        displayName={'Update'}
+                        onClick={() => {
+                          setWillUpdateId(item._id);
+                          setModalShow(true);
+                        }}
+                      />
+                      <AwesomeBtn
+                        displayName={'Delete'}
+                        onClick={() => handleDeleteAddService(item._id)}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

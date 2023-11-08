@@ -75,7 +75,7 @@ const SingleService = () => {
   };
   useEffect(() => {
     axios(`/service/${id}`).then((res) => setService(res.data[0]));
-    axios(`services?email=${email}`).then((res) =>
+    axios(`/services?email=${email}`).then((res) =>
       setAllServicesCurProvider(res.data)
     );
   }, [id, email]);

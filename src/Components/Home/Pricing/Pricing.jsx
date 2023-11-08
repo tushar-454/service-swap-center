@@ -71,10 +71,10 @@ const Pricing = () => {
                   )}
                 </ScrollTrigger>
               </h1>
-              <p>{price.desc}</p>
-              <p>
+              <span>{price.desc}</span>
+              <span>
                 <b>What You Get In This Service:</b>
-              </p>
+              </span>
               <ul>
                 {price.serviceList.map((item, index) => (
                   <li key={index}>

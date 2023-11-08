@@ -82,7 +82,7 @@ const Banner = () => {
                       delaySpeed={1000}
                     />
                   </h1>
-                  <p>
+                  <span>
                     <Typewriter
                       words={[`${singleSlide.desc}`]}
                       loop={1}
@@ -91,7 +91,7 @@ const Banner = () => {
                       typeSpeed={50}
                       delaySpeed={1000}
                     />
-                  </p>
+                  </span>
                 </div>
               </div>
             </div>

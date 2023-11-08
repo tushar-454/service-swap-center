@@ -37,3 +37,14 @@
 .teamSocial a img {
   width: 20px;
 }
+
+@media (max-width: 768px) {
+  .teamWrap {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 568px) {
+  .teamWrap {
+    grid-template-columns: 1fr;
+  }
+}

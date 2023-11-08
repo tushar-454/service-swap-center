@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import AwesomeBtn from '../../Reusable/AwesomeBtn';
 import Container from '../../Reusable/Container';
 import classes from './PopulerServices.module.css';
 const PopulerServices = () => {
@@ -38,20 +38,20 @@ const PopulerServices = () => {
                   <img src={service.authorImage} alt='authorimg' />
                   <h3>{service.authorName}</h3>
                 </div>
-                <div className={classes.viewMore}>
-                  <button>
-                    <Link to={`/service/${service._id}`}>view Details</Link>
-                  </button>
-                </div>
+                <AwesomeBtn
+                  displayName='View Details'
+                  path={`/service/${service._id}`}
+                />
               </div>
             </div>
           ))}
         </div>
-        <div className={classes.viewAll}>
-          <button>
-            <Link to={'/services'}>View All</Link>
-          </button>
-        </div>
+        <AwesomeBtn
+          displayName='View All'
+          path={`/services`}
+          style={{ display: 'block', textAlign: 'center' }}
+          btnStyle={{ background: '#ffa07a' }}
+        />
       </Container>
     </section>
   );

@@ -30,3 +30,6 @@
   transition: 0.2s;
   cursor: pointer;
 }
+.questionWrap img {
+  transition: 0.2s;
+}

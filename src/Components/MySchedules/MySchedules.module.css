@@ -122,6 +122,10 @@ div {
   .bookingServicesItem {
     align-items: start;
   }
+  .bookingServicesItemContent {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
 }
 
 @media (max-width: 320px) {

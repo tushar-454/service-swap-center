@@ -4,10 +4,17 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
 .errorRoutes img {
+  width: 40%;
   object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .errorRoutes img {
+    width: 100%;
+  }
 }

@@ -1,0 +1,25 @@
+.sectionTitle {
+  margin: 2rem 0;
+}
+.sectionTitle h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+.feedbackWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.feedbackContent {
+  width: 50%;
+}
+@media (max-width: 992px) {
+  .feedbackWrap {
+    flex-direction: column;
+    align-items: start;
+  }
+  .feedbackContent {
+    width: 100%;
+  }
+}

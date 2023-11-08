@@ -4,7 +4,7 @@ import AuthProvider from './AuthProvider/AuthProvider';
 import routes from './Routes/Routes';
 function App() {
   axios.defaults.withCredentials = true;
-  axios.defaults.baseURL = 'https://service-swap-center.vercel.app';
+  axios.defaults.baseURL = 'http://localhost:5000';
   return (
     <AuthProvider>
       <RouterProvider router={routes} />

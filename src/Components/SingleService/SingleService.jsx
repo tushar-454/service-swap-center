@@ -200,14 +200,16 @@ const SingleService = () => {
             ?.filter((item) => item._id !== id)
             ?.map((service, index) => (
               <div key={index} className={classes.otherServicesItem}>
-                <img src={service.image} alt='services img' />
+                <div className={classes.otherServiceImg}>
+                  <img src={service.image} alt='services img' />
+                </div>
                 <div className={classes.otherServicesItemContent}>
                   <h1>{service.name}</h1>
 
-                  <p>
+                  <span>
                     <b>Description</b>
                     {service.description.slice(0, 100)}
-                  </p>
+                  </span>
                   <p>
                     <b>Price:</b> {service.price}
                   </p>

@@ -1,0 +1,39 @@
+.sectionTitle {
+  margin: 2rem 0;
+}
+.sectionTitle h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.teamWrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.teamDiv {
+  background-color: #fff;
+  box-shadow: 0 4px 4px 0 #00000033;
+  border-radius: 1rem;
+  padding: 0;
+}
+.memberImg img {
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
+}
+.memberDetails {
+  text-align: center;
+  padding-top: 1rem;
+}
+.teamSocial {
+  padding-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+.teamSocial a img {
+  width: 20px;
+}

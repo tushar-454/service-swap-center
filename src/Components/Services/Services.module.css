@@ -7,9 +7,23 @@
 }
 .servicesItem {
   margin: 2rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0px 5px 20px 0px #0000000a;
 }
-.servicesItem img {
+.servicesImg {
+  width: 50%;
+  height: 100%;
+}
+.servicesImg img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.4rem;
 }
 .servicesItemContent h1,
 h2,
@@ -17,6 +31,7 @@ h3,
 h4 {
   margin: 0.3rem 0;
   font-weight: 400;
+  text-align: left;
 }
 .servicesItemContent h1 {
   font-size: 2rem;
@@ -41,32 +56,28 @@ h4 {
   width: 48px;
   border-radius: 100px;
 }
-.viewMore button,
-.viewAll button {
-  border: none;
-  outline: none;
-  font-weight: 500;
-  font-size: 1rem;
-  background: tomato;
-  padding: 0.5rem 2rem;
-  color: white;
-  border-radius: 0.5rem;
-}
-.viewAll {
+.noFound p {
   text-align: center;
-  margin: 2rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ff0000;
 }
-.viewAll button {
-  padding: 0.5rem 5rem;
-  cursor: pointer;
-}
-.viewAll button a,
-.viewMore button a {
-  color: #fff !important;
-}
-
 .hideBtn {
   display: none;
+}
+@media (max-width: 1440px) {
+  .servicesImg {
+    width: 70%;
+  }
+}
+@media (max-width: 992px) {
+  .servicesItem {
+    flex-direction: column;
+    align-items: start;
+  }
+  .servicesImg {
+    width: 100%;
+  }
 }
 @media (max-width: 400px) {
   .servicesItemContent h1 {

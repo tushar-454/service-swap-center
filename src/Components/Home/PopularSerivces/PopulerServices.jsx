@@ -14,44 +14,52 @@ const PopulerServices = () => {
         <div className={classes.sectionTitle}>
           <h1>Popular Services</h1>
         </div>
+        {popularServices.length === 0 && (
+          <div className={classes.noFound}>
+            <p>No Popular service found</p>
+          </div>
+        )}
         <div className={classes.popularServicesWrap}>
-          {popularServices?.slice(0, 4).map((service, index) => (
-            <div key={index} className={classes.popularServicesItem}>
-              <img src={service.image} alt='services img' />
-              <div className={classes.popularServicesItemContent}>
-                <h1>{service.name}</h1>
+          {popularServices.length > 0 &&
+            popularServices?.slice(0, 4).map((service, index) => (
+              <div key={index} className={classes.popularServicesItem}>
+                <img src={service.image} alt='services img' />
+                <div className={classes.popularServicesItemContent}>
+                  <h1>{service.name}</h1>
 
-                <p>
-                  <b>Description: </b>
-                  {service.description.slice(0, 100)}
-                </p>
-                <p>
-                  <b>Price:</b> {service.price}
-                </p>
-                <p>
-                  <b>Area:</b> {service.servicearea}
-                </p>
-              </div>
-
-              <div className={classes.servicesAuthorWrap}>
-                <div className={classes.servicesAuthor}>
-                  <img src={service.authorImage} alt='authorimg' />
-                  <h3>{service.authorName}</h3>
+                  <p>
+                    <b>Description: </b>
+                    {service.description.slice(0, 100)}
+                  </p>
+                  <p>
+                    <b>Price:</b> {service.price}
+                  </p>
+                  <p>
+                    <b>Area:</b> {service.servicearea}
+                  </p>
                 </div>
-                <AwesomeBtn
-                  displayName='View Details'
-                  path={`/service/${service._id}`}
-                />
+
+                <div className={classes.servicesAuthorWrap}>
+                  <div className={classes.servicesAuthor}>
+                    <img src={service.authorImage} alt='authorimg' />
+                    <h3>{service.authorName}</h3>
+                  </div>
+                  <AwesomeBtn
+                    displayName='View Details'
+                    path={`/service/${service._id}`}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
-        <AwesomeBtn
-          displayName='View All'
-          path={`/services`}
-          style={{ display: 'block', textAlign: 'center' }}
-          btnStyle={{ background: '#ffa07a' }}
-        />
+        {popularServices.length > 0 && (
+          <AwesomeBtn
+            displayName='View All'
+            path={`/services`}
+            style={{ display: 'block', textAlign: 'center' }}
+            btnStyle={{ background: '#ffa07a' }}
+          />
+        )}
       </Container>
     </section>
   );

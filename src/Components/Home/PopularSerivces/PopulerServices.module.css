@@ -39,27 +39,11 @@
 .servicesAuthor img {
   border-radius: 100px;
 }
-.viewAll {
+.noFound p {
   text-align: center;
-  margin: 2rem 0;
-}
-.viewMore button,
-.viewAll button {
-  border: none;
-  outline: none;
+  font-size: 1.1rem;
   font-weight: 500;
-  font-size: 1rem;
-  background: tomato;
-  padding: 0.5rem;
-  color: white;
-  border-radius: 0.5rem;
-}
-.viewAll button {
-  padding: 0.5rem 2rem;
-}
-.viewAll button a,
-.viewMore button a {
-  color: #fff;
+  color: #ff0000;
 }
 .popularServicesItemContent {
   margin: 0.5rem 0;

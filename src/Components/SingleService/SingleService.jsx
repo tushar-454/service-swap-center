@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import AwesomeBtn from '../Reusable/AwesomeBtn';
 import Container from '../Reusable/Container';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
@@ -78,31 +79,35 @@ const SingleService = () => {
         <title>{`Serivce - ${service.name}`}</title>
       </Helmet>
       <Container>
-        <div className={classes.servicesItem}>
-          <img src={image} alt={image} />
-          <div className={classes.servicesItemContent}>
-            <h1>{name}</h1>
-
-            <h2>
-              <b>Description:</b>
-              {description}
-            </h2>
-
-            <h3>
-              <b>Price:</b> {price}
-            </h3>
-            <h4>
-              <b>Area:</b> {servicearea}
-            </h4>
-          </div>
-
-          <div className={classes.servicesAuthorWrap}>
-            <div className={classes.servicesAuthor}>
-              <img src={authorImage} alt={authorImage} />
-              <h3>{authorName}</h3>
+        <div className={classes.wrapper}>
+          <div className={classes.servicesItem}>
+            <div className={classes.servicesItemImg}>
+              <img src={image} alt={image} />
             </div>
-            <div className={classes.viewMore}>
-              <button onClick={() => setModalShow(true)}>Book Now</button>
+            <div className={classes.servicesItemContent}>
+              <h1>{name}</h1>
+
+              <h2>
+                <b>Description:</b>
+                {description}
+              </h2>
+
+              <h3>
+                <b>Price:</b> {price}
+              </h3>
+              <h4>
+                <b>Area:</b> {servicearea}
+              </h4>
+              <div className={classes.servicesAuthorWrap}>
+                <div className={classes.servicesAuthor}>
+                  <img src={authorImage} alt={authorImage} />
+                  <h3>{authorName}</h3>
+                </div>
+                <AwesomeBtn
+                  displayName={'Book now'}
+                  onClick={() => setModalShow(true)}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -197,11 +202,10 @@ const SingleService = () => {
                     <img src={service.authorImage} alt='authorimg' />
                     <h3>{service.authorName}</h3>
                   </div>
-                  <div className={classes.viewMore}>
-                    <button>
-                      <Link to={`/service/${service._id}`}>view Details</Link>
-                    </button>
-                  </div>
+                  <AwesomeBtn
+                    displayName={'View Details'}
+                    path={`/service/${service._id}`}
+                  />
                 </div>
               </div>
             ))}

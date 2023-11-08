@@ -8,12 +8,12 @@
   transition: 0.2s;
 }
 .login:hover {
-  background-color: #2626ff;
+  background-color: #3498db;
   color: #fff;
 }
 
 .active {
-  background-color: #2626ff;
+  background-color: #3498db;
   color: #fff !important;
 }
 

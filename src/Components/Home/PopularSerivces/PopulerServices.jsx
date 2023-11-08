@@ -22,7 +22,7 @@ const PopulerServices = () => {
                 <h1>{service.name}</h1>
 
                 <p>
-                  <b>Description</b>
+                  <b>Description: </b>
                   {service.description.slice(0, 100)}
                 </p>
                 <p>

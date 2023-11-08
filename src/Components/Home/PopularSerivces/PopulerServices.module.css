@@ -11,14 +11,17 @@
   grid-template-columns: 1fr 1fr;
   justify-content: space-between;
   gap: 2rem;
+  margin: 3rem 0;
 }
 .popularServicesItem {
-  background-color: #efefef;
-  border-radius: 0.2rem;
-  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 4px 0 #00000033;
 }
 .popularServicesItem img {
   width: 100%;
+  border-radius: 1rem;
 }
 .servicesAuthorWrap {
   display: flex;

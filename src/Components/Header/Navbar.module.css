@@ -14,11 +14,11 @@
   transition: 0.2s;
 }
 .navItem span:hover {
-  background-color: #2626ff;
+  background-color: #3498db;
   color: #fff;
 }
 .active {
-  background-color: #2626ff;
+  background-color: #3498db;
   color: #fff !important;
 }
 .commonNavBar {
@@ -32,7 +32,7 @@
   transition: 0.2s;
 }
 .dropdownWrap:hover {
-  background-color: #2626ff;
+  background-color: #3498db;
   cursor: pointer;
 }
 .dropdownWrap:hover .dropdownItem span {

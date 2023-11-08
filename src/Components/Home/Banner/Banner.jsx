@@ -8,6 +8,44 @@ import sliderSixImg from '../../../assets/services6.jpg';
 import sliderSevenImg from '../../../assets/services7.jpg';
 import classes from './Banner.module.css';
 
+const slidesArray = [
+  {
+    image: sliderOneImg,
+    title: 'House Decoration services',
+    desc: 'Transform your space with our expert house decoration services. From concept to creation, well elevate your home aesthetic seamlessly',
+  },
+  {
+    image: sliderTwoImg,
+    title: 'Furniture Repair',
+    desc: 'Expert furniture repair: Revive your pieces with skilled craftsmanship, restoring beauty and function. Trust us to renew your beloved furniture.',
+  },
+  {
+    image: sliderThreeImg,
+    title: 'Pool Cleaning',
+    desc: "Professional pool cleaning: Let us maintain your pool's sparkle. Skilled service for crystal-clear water and a pristine swimming experience.",
+  },
+  {
+    image: sliderFourImg,
+    title: 'Rooftop Repair',
+    desc: 'Skilled rooftop repairs: We fix leaks, damages, and ensure a sturdy, weatherproof roof. Trust us for reliable and efficient repair services.',
+  },
+  {
+    image: sliderFiveImg,
+    title: 'AC Installation',
+    desc: 'Expert AC installation: Professional service to keep you cool. Quality installations ensuring efficient, reliable cooling for your comfort.',
+  },
+  {
+    image: sliderSixImg,
+    title: 'CCTV Installation',
+    desc: 'Professional CCTV installations: Secure your space with our expert setup. Trust us for reliable, high-quality surveillance solutions.',
+  },
+  {
+    image: sliderSevenImg,
+    title: 'Water Pump Installation',
+    desc: 'Efficient water pump installations: Dependable expertise for optimal water flow. Trust our service for reliable and seamless installation.',
+  },
+];
+
 const Banner = () => {
   const [counter, setCounter] = useState(0);
   const [buttons, setButtons] = useState([]);
@@ -28,97 +66,17 @@ const Banner = () => {
       {/* <Container> */}
       <div className={classes.sliderWrap}>
         <div className={classes.slideWrap}>
-          {/* slider - 1  */}
-          <div className={`${classes.slide} allSlider`}>
-            <img src={sliderOneImg} />
-            <div className={classes.sideContentWrap}>
-              <div className={classes.slideContent}>
-                <h1>Ride Sharing</h1>
-                <p>
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
-                </p>
+          {slidesArray.map((singleSlide, index) => (
+            <div key={index} className={`${classes.slide} allSlider`}>
+              <img src={singleSlide.image} />
+              <div className={classes.sideContentWrap}>
+                <div className={classes.slideContent}>
+                  <h1>{singleSlide.title}</h1>
+                  <p>{singleSlide.desc}</p>
+                </div>
               </div>
             </div>
-          </div>
-          {/* slider - 2  */}
-          <div className={`${classes.slide} allSlider`}>
-            <img src={sliderTwoImg} />
-            <div className={classes.sideContentWrap}>
-              <div className={classes.slideContent}>
-                <h1>Tool Sharing</h1>
-                <p>
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* slider - 3  */}
-          <div className={`${classes.slide} allSlider`}>
-            <img src={sliderThreeImg} />
-            <div className={classes.sideContentWrap}>
-              <div className={classes.slideContent}>
-                <h1>All Home Services</h1>
-                <p>
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* slider - 4  */}
-          <div className={`${classes.slide} allSlider`}>
-            <img src={sliderFourImg} />
-            <div className={classes.sideContentWrap}>
-              <div className={classes.slideContent}>
-                <h1>Child co-oparative Service</h1>
-                <p>
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* slider - 5  */}
-          <div className={`${classes.slide} allSlider`}>
-            <img src={sliderFiveImg} />
-            <div className={classes.sideContentWrap}>
-              <div className={classes.slideContent}>
-                <h1>Pet Sitting and Walking</h1>
-                <p>
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* slider - 6  */}
-          <div className={`${classes.slide} allSlider`}>
-            <img src={sliderSixImg} />
-            <div className={classes.sideContentWrap}>
-              <div className={classes.slideContent}>
-                <h1>Book Swap</h1>
-                <p>
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
-                </p>
-              </div>
-            </div>
-          </div>
-          {/* slider - 7  */}
-          <div className={`${classes.slide} allSlider`}>
-            <img src={sliderSevenImg} />
-            <div className={classes.sideContentWrap}>
-              <div className={classes.slideContent}>
-                <h1>Clothing Swap</h1>
-                <p>
-                  There are many variations of passages of available, but the
-                  majority have suffered alteration in some form
-                </p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
         <div className={classes.sliderButton}>
           {buttons?.map((btn, index) => (

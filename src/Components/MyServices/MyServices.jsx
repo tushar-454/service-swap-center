@@ -38,10 +38,7 @@ const MyServices = () => {
                 <div className={classes.manageServicesItemContent}>
                   <h1>{item.name}</h1>
 
-                  <p>
-                    <b>Description</b>
-                    {item.description}
-                  </p>
+                  <p>{item.description}</p>
                   <p>
                     <b>Price:</b> {item.price}
                   </p>

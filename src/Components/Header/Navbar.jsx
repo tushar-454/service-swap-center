@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
-import dropdownArrow from '../../assets/icon/arrow-down.png';
+// import dropdownArrow from '../../assets/icon/arrow-down.png';
 import menu from '../../assets/icon/menu.png';
 import cross from '../../assets/icon/remove.png';
 import classes from './Navbar.module.css';
@@ -70,12 +70,12 @@ const Navbar = () => {
                   onClick={() => setDropDownShow(!dropDownShow)}
                 >
                   <span>Dashboard</span>
-                  <img
+                  {/* <img
                     src={dropdownArrow}
                     className={`${classes.arrow} ${
                       dropDownShow && classes.arrowRotate
                     }`}
-                  />
+                  /> */}
                 </div>
                 <div
                   className={`${classes.dropdown} ${

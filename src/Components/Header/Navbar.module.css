@@ -9,8 +9,9 @@
   font-weight: 500;
   margin: 0.3rem;
   color: #000;
-  padding: 0.5rem 0.8rem;
-  border-radius: 0.4rem;
+  background-color: #3498db50;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
   transition: 0.2s;
 }
 .navItem span:hover {
@@ -18,7 +19,7 @@
   color: #fff;
 }
 .active {
-  background-color: #3498db;
+  background-color: #3498db !important;
   color: #fff !important;
 }
 .commonNavBar {
@@ -32,7 +33,6 @@
   transition: 0.2s;
 }
 .dropdownWrap:hover {
-  background-color: #3498db;
   cursor: pointer;
 }
 .dropdownWrap:hover .dropdownItem span {
@@ -41,10 +41,10 @@
 .dropdownWrap:hover .dropdownItem img {
   filter: invert(1);
 }
-.dropdownItem {
+/* .dropdownItem {
   display: flex;
   align-items: center;
-}
+} */
 .dropdown {
   position: absolute;
   width: fit-content;
@@ -60,6 +60,7 @@
   transform-origin: top;
   backdrop-filter: blur(2rem);
   transform: scaleY(0);
+  border-radius: 1rem;
 }
 .arrow {
   transition: 0.2s;
@@ -101,9 +102,9 @@
   .navShow {
     transform: scaleY(1);
   }
-  .dropdownItem {
+  /* .dropdownItem {
     flex-direction: row-reverse;
-  }
+  } */
   .dropdown {
     background-color: #fff;
     right: 12rem;

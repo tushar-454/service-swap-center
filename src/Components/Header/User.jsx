@@ -40,7 +40,7 @@ const User = ({ setNavShow, setDropDownShow }) => {
               >
                 <div className={classes.userProfileInfo}>
                   <h4>{user?.displayName}</h4>
-                  <p>{user?.email.slice(0, user?.email.indexOf('@'))}</p>
+                  <p>{user?.email}</p>
                 </div>
                 <div
                   className={classes.userProfileDropdown}

@@ -21,7 +21,7 @@ const PopulerServices = () => {
         )}
         <div className={classes.popularServicesWrap}>
           {popularServices.length > 0 &&
-            popularServices?.slice(0, 4).map((service, index) => (
+            popularServices?.slice(0, 6).map((service, index) => (
               <div key={index} className={classes.popularServicesItem}>
                 <div className={classes.popularServicesItemImg}>
                   <img src={service.image} alt='services img' />

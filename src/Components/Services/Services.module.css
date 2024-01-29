@@ -8,8 +8,7 @@
 .servicesItem {
   margin: 2rem 0;
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  gap: 2.5rem;
   background-color: #fff;
   padding: 1rem;
   border-radius: 0.4rem;
@@ -17,7 +16,6 @@
 }
 .servicesImg {
   width: 50%;
-  height: 100%;
 }
 .servicesImg img {
   width: 100%;
@@ -36,15 +34,19 @@ h4 {
 .servicesItemContent h1 {
   font-size: 2rem;
   font-weight: bolder;
+  margin-bottom: 0.5rem;
 }
 .servicesItemContent h2 {
-  font-size: 2rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 .servicesItemContent h3 {
   font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 .servicesItemContent h4 {
   font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 .servicesAuthor {
   display: flex;
@@ -53,7 +55,7 @@ h4 {
   margin: 1rem 0;
 }
 .servicesAuthor img {
-  width: 48px;
+  width: 4rem;
   border-radius: 100px;
 }
 .noFound p {
@@ -67,7 +69,7 @@ h4 {
 }
 @media (max-width: 1440px) {
   .servicesImg {
-    width: 70%;
+    min-width: 50%;
   }
 }
 @media (max-width: 992px) {
@@ -84,7 +86,7 @@ h4 {
     font-size: 1.5rem;
   }
   .servicesItemContent h2 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .servicesItemContent h3 {
     font-size: 1rem;

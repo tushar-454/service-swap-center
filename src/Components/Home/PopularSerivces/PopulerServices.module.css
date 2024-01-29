@@ -8,7 +8,7 @@
 .popularServicesWrap {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   gap: 2rem;
   margin: 3rem 0;
@@ -28,14 +28,17 @@
 }
 .popularServicesItemContent p {
   text-wrap: wrap;
+  margin: 0.8rem 0;
 }
 .servicesAuthorWrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid #00000033;
+  padding-top: 0.5rem;
 }
 .servicesAuthorWrap img {
-  width: 2rem;
+  width: 4rem;
 }
 .servicesAuthor {
   display: flex;
@@ -53,6 +56,14 @@
 }
 .popularServicesItemContent {
   margin: 0.5rem 0;
+}
+.popularServicesItemContent:last-child {
+  padding-bottom: 0.8rem 0;
+}
+@media (max-width: 1280px) {
+  .popularServicesWrap {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 @media (max-width: 768px) {
   .popularServicesWrap {

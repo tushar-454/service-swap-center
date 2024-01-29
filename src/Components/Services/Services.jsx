@@ -64,9 +64,7 @@ const Services = () => {
                 </div>
                 <div className={classes.servicesItemContent}>
                   <h1>{service.name}</h1>
-                  <h2>
-                    <b>Description:</b> {service.description.slice(0, 100)}
-                  </h2>
+                  <h2>{service.description.slice(0, 100)}</h2>
                   <h3>
                     <b>Price:</b> {service.price}
                   </h3>
